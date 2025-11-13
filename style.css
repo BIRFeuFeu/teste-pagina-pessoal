@@ -246,28 +246,38 @@ input:checked + .slider:before { transform: translateX(26px); }
 .carousel-slides { display: flex; width: 100%; height: 100%; }
 .carousel-slide { width: 100%; height: 100%; flex-shrink: 0; background-size: cover; background-position: center; }
 
-/* CORREÇÃO FINAL: MARGEM DO CONTEÚDO DO MODAL */
-.modal-text-area { 
-  padding: 40px 50px; 
-  padding-top: 220px; /* AUMENTADO NOVAMENTE para dar o máximo de margem de segurança ao título grande */
+
+/* 1. CORREÇÃO DEFINITIVA DO TÍTULO DO MODAL: AGORA ELE É UM ELEMENTO DE FLUXO NORMAL */
+#modalTitle {
+  position: static; /* Remove a flutuação do título */
+  display: block; /* Garante que ele ocupe toda a linha */
+  margin: 0 0 30px 0; /* Adiciona espaço abaixo do título para separá-lo do subtítulo */
+  color: var(--color-text-inverted); /* Corrigido para a cor do texto nos cards */
+  text-shadow: none; 
+  font-size: 2.5rem; 
+  text-align: left;
+  pointer-events: auto;
 }
 
-/* Também remove margem inferior do subtítulo da história para evitar que ele suba */
+/* 2. REMOVE ELEMENTOS VISUAIS E HACKS ANTERIORES */
+.modal-text-area { 
+  padding: 40px 50px; /* Volta ao padding padrão */
+  padding-top: 50px; /* Garante que o texto comece logo após o título */
+}
+
+.modal-carousel::after {
+  content: none; /* Remove o gradiente de fundo que era para o título sobre a foto */
+}
+
+/* 3. Ajusta o subtítulo "Sua História" */
 .story-heading { 
     font-size: 1.2rem; 
     color: var(--color-accent); 
     text-transform: uppercase; 
     letter-spacing: 1px; 
-    margin-bottom: 0; 
+    margin-bottom: 15px; /* Adiciona margem para separar do corpo do texto */
 }
 
-
-#modalTitle {
-  position: absolute; bottom: 20px; left: 20px; margin: 0; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); z-index: 10; font-size: 2.5rem; pointer-events: none;
-}
-.modal-carousel::after {
-  content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 5;
-}
 
 /* --- BOTÕES DO CARROSSEL VISÍVEIS --- */
 .carousel-btn {
@@ -300,5 +310,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-  }
-               
+            }
+  
