@@ -94,8 +94,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
 
 .profile-photo {
-  width: 300px; 
-  height: 300px;
+  width: 400px; 
+  height: 400px;
   border-radius: 50%;
   background-image: url("images/profile.jpg"); background-size: cover; 
   background-position: center center;
