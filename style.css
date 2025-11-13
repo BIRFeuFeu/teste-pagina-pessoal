@@ -20,8 +20,8 @@
 /* --- VARIÁVEIS (MODO ESCURO) --- */
 [data-theme="dark"] {
   --color-bg: #1a1614;              /* Marrom Quase Preto (Fundo) */
-  --color-card: #2D2420;            /* Marrom Original (Cards) - Mantive para identidade */
-  --color-accent: #E04E15;          /* Laranja um pouco mais vivo para o escuro */
+  --color-card: #2D2420;            /* Marrom Original (Cards) */
+  --color-accent: #E04E15;          /* Laranja um pouco mais vivo */
   --color-text-main: #D4DBCC;       /* O texto do fundo vira bege */
   --color-text-inverted: #F0F2EA;   /* Texto dos cards continua claro */
   --color-sidebar: #120f0e;         /* Sidebar mais escura */
@@ -38,7 +38,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text-main);
   line-height: 1.6;
-  transition: background-color 0.4s ease, color 0.4s ease; /* Transição suave do tema */
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 * { box-sizing: border-box; }
@@ -51,9 +51,9 @@ body {
 
 /* --- ANIMAÇÃO SCROLL REVEAL --- */
 .reveal {
-  opacity: 0;
+  opacity: 0; /* Começa invisível para animar */
   transform: translateY(50px); /* Começa mais baixo */
-  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); /* Movimento elegante */
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
 }
 
 .reveal.active {
@@ -78,7 +78,7 @@ body {
 input:checked + .slider { background-color: var(--color-accent); }
 input:checked + .slider:before { transform: translateX(26px); }
 
-/* --- SIDEBAR --- */
+/* --- SIDEBAR (MENU LATERAL) --- */
 .menu-btn {
   position: fixed; top: 25px; left: 25px;
   background-color: var(--color-card);
@@ -136,7 +136,6 @@ input:checked + .slider:before { transform: translateX(26px); }
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .hero-title { font-size: 4rem; font-weight: 800; margin: 0; color: var(--color-card); line-height: 1.1; letter-spacing: -1px; }
-/* No modo escuro, o título precisa ficar claro */
 [data-theme="dark"] .hero-title { color: var(--color-text-inverted); }
 
 .hero-subtitle { font-size: 1.5rem; margin: 10px 0 20px; color: var(--color-accent); font-weight: 600; }
@@ -154,7 +153,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 [data-theme="dark"] .cta-button { background-color: var(--color-accent); color: white; }
 .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); background-color: var(--color-accent); }
 
-/* --- SEÇÕES --- */
+/* --- SEÇÕES GERAIS --- */
 .section-wrapper { margin: 100px 0; }
 .section-header { text-align: center; margin-bottom: 60px; }
 .section-tag { text-transform: uppercase; letter-spacing: 2px; font-size: 12px; font-weight: bold; color: var(--color-accent); display: block; margin-bottom: 10px; }
@@ -163,15 +162,27 @@ input:checked + .slider:before { transform: translateX(26px); }
 
 .section-subtitle { color: var(--color-text-main); margin-top: 10px; opacity: 0.7; }
 
-/* --- CARDS --- */
+/* --- CARDS DE HISTÓRIA --- */
 .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
 .category-card {
   background-color: var(--color-card); border-radius: var(--radius-md);
   overflow: hidden; cursor: pointer; transition: all 0.4s ease;
   box-shadow: var(--shadow-soft); display: flex; flex-direction: column;
 }
 .category-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-strong); }
+
 .category-image { height: 220px; width: 100%; background-size: cover; background-position: center; border-bottom: 4px solid var(--color-accent); }
+
+/* === REGRAS PARA FOTOS DOS CARDS (ESSENCIAIS) === */
+.category-card[data-category="biography"] .category-image { background-image: url("images/biografia.jpg"); }
+.category-card[data-category="profession"] .category-image { background-image: url("images/profissao.jpg"); }
+.category-card[data-category="friends"] .category-image { background-image: url("images/amigos.jpg"); }
+.category-card[data-category="relationship"] .category-image { background-image: url("images/relacionamento.jpg"); }
+.category-card[data-category="school"] .category-image { background-image: url("images/escola.jpg"); }
+.category-card[data-category="future"] .category-image { background-image: url("images/futuro.jpg"); }
+/* =============================================== */
+
 .category-content { padding: 30px; flex: 1; display: flex; flex-direction: column; }
 .category-title { font-size: 1.5rem; margin: 0 0 15px; color: var(--color-accent); }
 .category-description { font-size: 0.95rem; color: var(--color-text-inverted); margin-bottom: 20px; flex: 1; opacity: 0.9; }
@@ -220,7 +231,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 [data-theme="dark"] .contact-layout { background: var(--color-card); }
 
 .contact-info { background-color: var(--color-card); color: white; padding: 50px; }
-[data-theme="dark"] .contact-info { background-color: #120f0e; } /* Mais escuro no modo dark */
+[data-theme="dark"] .contact-info { background-color: #120f0e; } 
 
 .contact-form-container { padding: 50px; }
 .form-group label { display: block; font-size: 0.9rem; font-weight: bold; color: var(--color-card); margin-bottom: 8px; }
@@ -235,7 +246,7 @@ input:checked + .slider:before { transform: translateX(26px); }
   border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;
 }
 
-/* --- MODAL --- */
+/* --- MODAL (POP-UP) --- */
 .modal {
   display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
   z-index: 3000; align-items: center; justify-content: center; padding: 20px;
@@ -274,5 +285,4 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
   .sidebar { width: 100%; }
-                            }
-  
+                  }
