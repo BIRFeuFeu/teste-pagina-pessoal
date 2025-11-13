@@ -93,22 +93,31 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* --- HERO SECTION --- */
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
 
-/* AUMENTO DO TAMANHO AQUI */
 .profile-photo {
-  width: 240px; /* Aumentado de 200px */
-  height: 240px; /* Aumentado de 200px */
+  width: 300px; 
+  height: 300px;
   border-radius: 50%;
-  background-image: url("images/profile.jpg"); background-size: cover; background-position: center;
-  border: 8px solid var(--color-card); /* Borda ajustada para 8px */
+  background-image: url("images/profile.jpg"); background-size: cover; 
+  background-position: center center;
+  border: 10px solid var(--color-card); 
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
 .status-badge {
-  position: absolute; bottom: 10px; right: -10px;
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  
   background-color: var(--color-accent); color: white;
-  padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold;
+  padding: 8px 20px; 
+  border-radius: 25px; 
+  font-size: 15px; 
+  font-weight: bold;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
+
 .hero-title { font-size: 4rem; font-weight: 800; margin: 0; color: var(--color-card); line-height: 1.1; letter-spacing: -1px; }
 [data-theme="dark"] .hero-title { color: var(--color-text-inverted); }
 .hero-subtitle { font-size: 1.5rem; margin: 10px 0 20px; color: var(--color-accent); font-weight: 600; }
@@ -225,10 +234,18 @@ input:checked + .slider:before { transform: translateX(26px); }
   position: absolute; top: 20px; right: 20px; z-index: 30;
   background: rgba(0,0,0,0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
 }
+#closeModal:hover { background: var(--color-accent); }
+
 #modalPhotoContainer { height: 450px; width: 100%; background: #000; position: relative; }
 .carousel-slides { display: flex; width: 100%; height: 100%; }
 .carousel-slide { width: 100%; height: 100%; flex-shrink: 0; background-size: cover; background-position: center; }
-.modal-text-area { padding: 40px 50px; }
+
+/* AJUSTE AQUI: ADICIONA MARGEM NO TOPO DA ÁREA DE TEXTO PARA EMPURRAR O CONTEÚDO */
+.modal-text-area { 
+  padding: 40px 50px; 
+  padding-top: 80px; /* Aumentado o padding superior para evitar que o título grande invada */
+}
+
 #modalTitle {
   position: absolute; bottom: 20px; left: 20px; margin: 0; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); z-index: 10; font-size: 2.5rem; pointer-events: none;
 }
@@ -236,17 +253,15 @@ input:checked + .slider:before { transform: translateX(26px); }
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 5;
 }
 
-/* --- BOTÕES DO CARROSSEL VISÍVEIS (AJUSTE FINAL) --- */
+/* --- BOTÕES DO CARROSSEL VISÍVEIS --- */
 .carousel-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.65); /* Fundo mais escuro */
+  background-color: rgba(0, 0, 0, 0.65); 
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.4); /* Borda mais clara */
-  width: 55px; height: 55px; border-radius: 50%; /* Ligeiramente maior */
-  
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  width: 55px; height: 55px; border-radius: 50%; 
   z-index: 25; 
   cursor: pointer; display: none; transition: all 0.3s;
-  
   align-items: center; justify-content: center; font-size: 22px;
 }
 .modal-carousel.has-multiple-slides .carousel-btn { display: flex; }
@@ -263,8 +278,9 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Responsivo */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.5rem; }
+  .profile-photo { width: 180px; height: 180px; border: 6px solid var(--color-card); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-  }
-               
+            }
+                 
