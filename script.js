@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INFORMAÇÕES PRINCIPAIS ---
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    // --- NOVA DESCRIÇÃO AQUI ---
     description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
     
     section_title: "Conheça Minha História",
@@ -48,12 +47,12 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future_title: "Planos Futuros",
     future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal.",
     
-    // --- CORES (Dark/Terra) ---
-    primary_color: "#C03C04",    // Laranja ferrugem (Títulos)
-    secondary_color: "#2D2420",  // Marrom escuro (Cards e Fundo do Modal)
-    background_color: "#3a312c", // Fundo da página
-    text_color: "#D4DBCC",       // Bege claro (Textos)
-    accent_color: "#D4DBCC"
+    // --- NOVAS CORES E DISTRIBUIÇÃO (CONTRASTE) ---
+    primary_color: "#C03C04",    // Laranja (Títulos)
+    secondary_color: "#2D2420",  // Marrom Escuro (Cards e Modal)
+    background_color: "#D4DBCC", // BEGE CLARO (Novo Fundo do Site)
+    text_color: "#2D2420",       // Marrom Escuro (Para texto no fundo claro)
+    accent_color: "#D4DBCC"      // Bege Claro (Para texto dentro dos cards escuros)
   };
 
   let currentCategory = null;
@@ -91,9 +90,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
 
-        // --- AJUSTE DE ENQUADRAMENTO (PROFISSÃO) ---
         if (category === 'profession') {
-            // Foca na parte superior (50% horizontal, 20% do topo)
             slide.style.backgroundPosition = '50% 20%'; 
         } else {
             slide.style.backgroundPosition = 'center center';
@@ -167,32 +164,46 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     }
 
-    // --- APLICAÇÃO DAS CORES ---
-    const primaryColor = config.primary_color || defaultConfig.primary_color;
-    const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
-    const backgroundColor = config.background_color || defaultConfig.background_color;
-    const textColor = config.text_color || defaultConfig.text_color;
+    // --- LÓGICA DE CORES RENOVADA ---
+    const primaryColor = config.primary_color || defaultConfig.primary_color;     // Laranja
+    const secondaryColor = config.secondary_color || defaultConfig.secondary_color; // Marrom Escuro
+    const backgroundColor = config.background_color || defaultConfig.background_color; // Bege Claro
+    const textColor = config.text_color || defaultConfig.text_color;               // Marrom Escuro (texto fundo)
+    const accentColor = config.accent_color || defaultConfig.accent_color;         // Bege Claro (texto cards)
 
-    // Fundo do site
+    // 1. Fundo do site (Beige)
     document.body.style.backgroundColor = backgroundColor;
-    // Cor do texto geral
+    
+    // 2. Textos principais no fundo bege (Marrom Escuro)
     document.body.style.color = textColor;
+    document.querySelectorAll('.hero-subtitle, .section-subtitle, .hero-description, p').forEach(el => {
+        // Aplica a todos os parágrafos, mas será sobrescrito nos cards abaixo
+        el.style.color = textColor;
+    });
 
-    // Títulos e Destaques
+    // 3. Títulos (Laranja)
     const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
     titles.forEach(el => el.style.color = primaryColor);
 
-    // Cards
+    // 4. Cards e Modal (Fundo Marrom Escuro)
     const cards = document.querySelectorAll('.category-card');
     cards.forEach(card => card.style.backgroundColor = secondaryColor);
     
-    // Fundo do Modal
-    const modalBox = document.querySelector('.modal > div');
+    const modalBox = document.querySelector('.modal > div, .modal-box');
     if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    // Textos descritivos
-    const subtexts = document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p');
-    subtexts.forEach(el => el.style.color = textColor);
+    // 5. Textos DENTRO dos Cards e do Modal (Bege Claro para contraste)
+    // Seleciona especificamente as descrições dentro dos cards e o conteúdo do modal
+    document.querySelectorAll('.category-description, #modalContent').forEach(el => {
+        el.style.color = accentColor;
+    });
+    
+    // Ajusta também o botão de fechar para ficar visível no fundo escuro
+    const closeBtn = document.getElementById('closeModal');
+    if(closeBtn) {
+        closeBtn.style.color = accentColor; 
+        closeBtn.style.backgroundColor = 'rgba(255,255,255,0.1)';
+    }
   }
 
   // --- EVENTOS DE CLIQUE ---
@@ -205,8 +216,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
 
   const closeBtn = document.getElementById('closeModal');
   if(closeBtn) {
-      closeBtn.style.color = defaultConfig.text_color;
-      closeBtn.style.backgroundColor = 'rgba(0,0,0,0.2)';
       closeBtn.addEventListener('click', closeModal);
   }
 
@@ -246,4 +255,3 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     onConfigChange(defaultConfig);
   }
 });
-  
