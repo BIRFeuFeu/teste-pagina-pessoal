@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- CONFIGURAÇÃO INICIAL ---
+  // --- CONFIGURAÇÃO ---
   const defaultConfig = {
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
     
@@ -44,7 +44,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // Mapeamento de Imagens
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -54,7 +53,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
-  // --- FUNÇÕES DO MODAL ---
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
@@ -77,7 +75,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
 
-        // Enquadramento Inteligente
         if (category === 'profession') {
             slide.style.backgroundPosition = '50% 20%'; 
         } else {
@@ -129,7 +126,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   function nextSlide() { showSlide(currentSlideIndex + 1); }
   function prevSlide() { showSlide(currentSlideIndex - 1); }
 
-  // --- ATUALIZAÇÃO DE CONTEÚDO ---
   async function onConfigChange(config) {
     const textIds = [
         ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
@@ -151,9 +147,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     }
   }
 
-  // --- LISTENERS DE EVENTOS ---
-  
-  // Cards
   document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
         const category = card.getAttribute('data-category');
@@ -161,7 +154,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     });
   });
 
-  // Modal Controles
   const btnPrev = document.getElementById('carouselBtnPrev');
   const btnNext = document.getElementById('carouselBtnNext');
   if(btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
@@ -179,7 +171,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       if (e.key === 'Escape') closeModal();
   });
 
-  // Menu Lateral
   const menuToggle = document.getElementById('menuToggle');
   const menuClose = document.getElementById('menuClose');
   const sidebar = document.getElementById('sidebar');
@@ -189,7 +180,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     link.addEventListener('click', () => sidebar.classList.remove('active'));
   });
 
-  // Formulário (Feedback Visual)
   const contactForm = document.getElementById('contactForm');
   if(contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -206,8 +196,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     });
   }
 
-  // Inicializa
   if (window.elementSdk) { window.elementSdk.client.on('config', onConfigChange); } 
   else { onConfigChange(defaultConfig); }
 });
-                                 
