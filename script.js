@@ -42,7 +42,7 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // --- MUDANÇA AQUI: `categoryMap` atualizado ---
+  // --- `categoryMap` com os carrosséis de 2 fotos ---
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -57,7 +57,10 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
     const categoryInfo = categoryMap[category];
     
     document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
-    document.getElementById('modalContent').textContent = config[categoryia.content] || defaultConfig[categoryInfo.content];
+    
+    // --- CORREÇÃO AQUI ---
+    // Corrigido de "categoryia.content" para "categoryInfo.content"
+    document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     
     const slidesContainer = document.querySelector('.carousel-slides');
     const carouselContainer = document.getElementById('modalPhotoContainer');
