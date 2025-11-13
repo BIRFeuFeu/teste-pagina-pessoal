@@ -2,9 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const defaultConfig = {
-    main_title: "Seu Nome",
-    subtitle: "Sua Profissão ou Frase",
-    description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!",
+    main_title: "Alfeu Vantuir de Lara de Paula",
+    subtitle: "Lutador de Judô / Estudante",
+    description: "Tenho 16 anos, sou estudante do colégio Estadual Prof Julio Szymanski cursando o 2° ano de Desenvolvimento de Sistemas e no contra-turno sou lutador de judô pela prefeitura de Araucária",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
     
