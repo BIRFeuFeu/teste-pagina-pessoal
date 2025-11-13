@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INFORMAÇÕES PRINCIPAIS ---
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô, representando o município de Araucária.",
+    // --- NOVA DESCRIÇÃO AQUI ---
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
     
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
@@ -18,11 +19,12 @@ Sobre minha personalidade: tenho um humor ácido, rio por praticamente tudo, gos
     
     // --- PROFISSÃO (JUDÔ) ---
     profession_title: "Minha Paixão: Judô",
-    profession_content: `Meu "trabalho" atual e grande paixão é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
+    profession_content: `Meu trabalho atual é o judô, esporte que pratico há 10 anos, desde os meus 6. Comecei como faixa branca, treinando em Araucária, pelo Judô Araucária, com a minha sensei Jacqueline Osana.
+Com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
 
-Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.
+Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o país em busca do pódio.
 
-Consegui ficar em 7º lugar dentre todos do país na minha categoria. Considero isso uma grande conquista, algo que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
+Consegui ficar em 7º lugar dentre todos os competidores do Brasil na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
     
     // --- AMIGOS E FAMÍLIA ---
     friends_title: "Amigos e Família",
@@ -46,10 +48,10 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future_title: "Planos Futuros",
     future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal.",
     
-    // --- NOVAS CORES (Solicitadas) ---
+    // --- CORES (Dark/Terra) ---
     primary_color: "#C03C04",    // Laranja ferrugem (Títulos)
     secondary_color: "#2D2420",  // Marrom escuro (Cards e Fundo do Modal)
-    background_color: "#3a312c", // Um tom levemente mais claro para o fundo da página (para dar contraste com os cards)
+    background_color: "#3a312c", // Fundo da página
     text_color: "#D4DBCC",       // Bege claro (Textos)
     accent_color: "#D4DBCC"
   };
@@ -102,7 +104,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     } else {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
-      // Usa a cor secundária (Marrom escuro) como placeholder se não tiver foto
       slide.style.backgroundColor = defaultConfig.secondary_color; 
       slidesContainer.appendChild(slide);
     }
@@ -177,19 +178,19 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     // Cor do texto geral
     document.body.style.color = textColor;
 
-    // Títulos e Destaques (Cor #C03C04)
+    // Títulos e Destaques
     const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
     titles.forEach(el => el.style.color = primaryColor);
 
-    // Cards (Cor #2D2420)
+    // Cards
     const cards = document.querySelectorAll('.category-card');
     cards.forEach(card => card.style.backgroundColor = secondaryColor);
     
-    // Fundo do Modal (Cor #2D2420)
+    // Fundo do Modal
     const modalBox = document.querySelector('.modal > div');
     if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    // Textos descritivos (Cor #D4DBCC)
+    // Textos descritivos
     const subtexts = document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p');
     subtexts.forEach(el => el.style.color = textColor);
   }
@@ -203,7 +204,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   });
 
   const closeBtn = document.getElementById('closeModal');
-  // Ajusta a cor do botão fechar para combinar com o texto claro
   if(closeBtn) {
       closeBtn.style.color = defaultConfig.text_color;
       closeBtn.style.backgroundColor = 'rgba(0,0,0,0.2)';
@@ -246,3 +246,4 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     onConfigChange(defaultConfig);
   }
 });
+  
