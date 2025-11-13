@@ -34,12 +34,12 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     future_title: "Planos Futuros",
     future_content: "Compartilhe seus sonhos e planos para o futuro. Onde você se vê daqui a 5 ou 10 anos? Quais são seus objetivos pessoais e profissionais? Fale sobre seus projetos, aspirações e o legado que deseja deixar.",
     
-    // CORES DO TEMA ESCURO (Mantidas do seu código original)
-    primary_color: "#c03c04",
-    secondary_color: "#2d2420",
-    background_color: "#3a312c", 
-    text_color: "#d4dbcc",
-    accent_color: "#d4dbcc"
+    // --- CORES RESTAURADAS (Vermelho e Branco/Claro) ---
+    primary_color: "#cc0000",    // Vermelho vibrante para títulos
+    secondary_color: "#ffffff",  // Branco para os cards
+    background_color: "#f9f9f9", // Fundo bem claro (quase branco)
+    text_color: "#333333",       // Cinza escuro para leitura
+    accent_color: "#cc0000"
   };
 
   let currentCategory = null;
@@ -76,23 +76,22 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
-        
-        // --- ALTERAÇÃO FEITA AQUI ---
-        // Se a categoria for 'profession', alinha a imagem ao TOPO.
-        // Caso contrário, mantém o padrão (centro).
+
+        // --- REGRA DE ENQUADRAMENTO (Mantida) ---
+        // Se for Profissão, alinha no TOPO. Se não, alinha no CENTRO.
         if (category === 'profession') {
             slide.style.backgroundPosition = 'top center';
         } else {
             slide.style.backgroundPosition = 'center center';
         }
-        // -----------------------------
-
+        
         slidesContainer.appendChild(slide);
       });
     } else {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
-      slide.style.backgroundColor = '#2d2420'; 
+      // Cor de fundo caso não tenha imagem (cinza claro agora)
+      slide.style.backgroundColor = '#eeeeee'; 
       slidesContainer.appendChild(slide);
     }
     
@@ -105,12 +104,15 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     showSlide(0);
     
     document.getElementById('modalPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
     currentCategory = category;
   }
 
   function closeModal() {
     document.getElementById('modalPopup').classList.remove('active');
+    document.body.style.overflow = '';
     currentCategory = null;
+    
     setTimeout(() => {
         const slidesContainer = document.querySelector('.carousel-slides');
         if (slidesContainer) slidesContainer.innerHTML = '';
@@ -133,16 +135,17 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
 
   async function onConfigChange(config) {
     // Atualiza textos
-    const ids = [
-      ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
-      ['sectionTitle', 'section_title'], ['sectionSubtitle', 'section_subtitle'],
-      ['biographyTitle', 'biography_title'], ['professionTitle', 'profession_title'],
-      ['friendsTitle', 'friends_title'], ['relationshipTitle', 'relationship_title'],
-      ['schoolTitle', 'school_title'], ['futureTitle', 'future_title']
+    const textIds = [
+        ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
+        ['sectionTitle', 'section_title'], ['sectionSubtitle', 'section_subtitle'],
+        ['biographyTitle', 'biography_title'], ['professionTitle', 'profession_title'],
+        ['friendsTitle', 'friends_title'], ['relationshipTitle', 'relationship_title'],
+        ['schoolTitle', 'school_title'], ['futureTitle', 'future_title']
     ];
-    ids.forEach(([id, key]) => {
-       const el = document.getElementById(id);
-       if(el) el.textContent = config[key] || defaultConfig[key];
+
+    textIds.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = config[key] || defaultConfig[key];
     });
 
     if (currentCategory) {
@@ -151,58 +154,68 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
       document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     }
 
-    // --- APLICAÇÃO DE CORES (Conclusão do código cortado) ---
+    // --- APLICAÇÃO DAS CORES ---
     const primaryColor = config.primary_color || defaultConfig.primary_color;
     const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
     const backgroundColor = config.background_color || defaultConfig.background_color;
     const textColor = config.text_color || defaultConfig.text_color;
 
-    // Aplica as cores definidas no defaultConfig
+    // Fundo do site
     document.body.style.backgroundColor = backgroundColor;
+    // Texto geral
     document.body.style.color = textColor;
 
-    document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle').forEach(el => {
-        el.style.color = primaryColor;
-    });
+    // Títulos e Destaques (Vermelho)
+    const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
+    titles.forEach(el => el.style.color = primaryColor);
 
-    document.querySelectorAll('.category-card').forEach(card => {
-        card.style.backgroundColor = secondaryColor;
-    });
+    // Cards (Branco)
+    const cards = document.querySelectorAll('.category-card');
+    cards.forEach(card => card.style.backgroundColor = secondaryColor);
     
+    // Fundo do Modal (Branco)
     const modalBox = document.querySelector('.modal > div');
-    if(modalBox) modalBox.style.backgroundColor = secondaryColor;
+    if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p').forEach(el => {
-        el.style.color = textColor;
-    });
+    // Textos secundários (Cinza Escuro)
+    const subtexts = document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p');
+    subtexts.forEach(el => el.style.color = textColor);
   }
 
-  // --- EVENTOS DE CLIQUE (Essenciais para o site funcionar) ---
+  // --- EVENTOS DE CLIQUE ---
   document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
-        openModal(card.getAttribute('data-category'));
+        const category = card.getAttribute('data-category');
+        openModal(category);
     });
   });
 
   const closeBtn = document.getElementById('closeModal');
-  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
 
   const modalPopup = document.getElementById('modalPopup');
-  if (modalPopup) {
-      modalPopup.addEventListener('click', (e) => {
-          if (e.target === modalPopup) closeModal();
-      });
+  if(modalPopup) {
+    modalPopup.addEventListener('click', (e) => {
+        if (e.target === modalPopup) closeModal();
+    });
   }
 
   const btnPrev = document.getElementById('carouselBtnPrev');
   const btnNext = document.getElementById('carouselBtnNext');
-  if (btnPrev) {
-      btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
-  }
-  if (btnNext) {
-      btnNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
-  }
   
+  if(btnPrev) {
+      btnPrev.addEventListener('click', (e) => {
+          e.stopPropagation();
+          prevSlide();
+      });
+  }
+  if(btnNext) {
+      btnNext.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextSlide();
+      });
+  }
+
   document.addEventListener('keydown', (e) => {
       if (!document.getElementById('modalPopup').classList.contains('active')) return;
       if (e.key === 'ArrowLeft') prevSlide();
@@ -216,3 +229,4 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     onConfigChange(defaultConfig);
   }
 });
+    
