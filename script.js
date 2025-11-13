@@ -1,47 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- LÓGICA DO MENU LATERAL ---
-  const menuToggle = document.getElementById('menuToggle');
-  const menuClose = document.getElementById('menuClose');
-  const sidebar = document.getElementById('sidebar');
-  
-  // Abrir Menu
-  if(menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.add('active');
-    });
-  }
-
-  // Fechar Menu
-  if(menuClose) {
-    menuClose.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-    });
-  }
-
-  // Fechar ao clicar em um link
-  const navLinks = document.querySelectorAll('.nav-link');
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      sidebar.classList.remove('active');
-    });
-  });
-
-  // --- LÓGICA DO FORMULÁRIO (Visual apenas) ---
-  const contactForm = document.getElementById('contactForm');
-  if(contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Obrigado pela mensagem! Entrarei em contato em breve.');
-      contactForm.reset();
-    });
-  }
-
-  // --- DADOS E CORES (Mantidos) ---
+  // --- CONFIGURAÇÃO INICIAL ---
   const defaultConfig = {
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
     
@@ -74,19 +37,14 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     school_content: "Minha jornada na escola, matérias favoritas e aprendizados.",
     
     future_title: "Planos Futuros",
-    future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal.",
-    
-    primary_color: "#C03C04",    
-    secondary_color: "#2D2420",  
-    background_color: "#D4DBCC", 
-    text_color: "#2D2420",       
-    accent_color: "#D4DBCC"      
+    future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal."
   };
 
   let currentCategory = null;
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
+  // Mapeamento de Imagens
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -96,6 +54,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
+  // --- FUNÇÕES DO MODAL ---
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
@@ -118,6 +77,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
 
+        // Enquadramento Inteligente
         if (category === 'profession') {
             slide.style.backgroundPosition = '50% 20%'; 
         } else {
@@ -129,7 +89,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     } else {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
-      slide.style.backgroundColor = defaultConfig.secondary_color; 
+      slide.style.backgroundColor = '#2D2420'; 
       slidesContainer.appendChild(slide);
     }
     
@@ -140,7 +100,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     }
     
     showSlide(0);
-    
     document.getElementById('modalPopup').classList.add('active');
     document.body.style.overflow = 'hidden';
     currentCategory = category;
@@ -150,7 +109,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     document.getElementById('modalPopup').classList.remove('active');
     document.body.style.overflow = '';
     currentCategory = null;
-    
     setTimeout(() => {
         const slidesContainer = document.querySelector('.carousel-slides');
         if (slidesContainer) slidesContainer.innerHTML = '';
@@ -171,6 +129,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   function nextSlide() { showSlide(currentSlideIndex + 1); }
   function prevSlide() { showSlide(currentSlideIndex - 1); }
 
+  // --- ATUALIZAÇÃO DE CONTEÚDO ---
   async function onConfigChange(config) {
     const textIds = [
         ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
@@ -190,37 +149,11 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
       document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     }
-
-    const primaryColor = config.primary_color || defaultConfig.primary_color;
-    const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
-    const backgroundColor = config.background_color || defaultConfig.background_color;
-    const textColor = config.text_color || defaultConfig.text_color;
-    const accentColor = config.accent_color || defaultConfig.accent_color;
-
-    document.body.style.backgroundColor = backgroundColor;
-    document.body.style.color = textColor;
-    document.querySelectorAll('.hero-subtitle, .section-subtitle, .hero-description, p').forEach(el => { el.style.color = textColor; });
-
-    const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
-    titles.forEach(el => el.style.color = primaryColor);
-
-    const cards = document.querySelectorAll('.category-card, .achievement-card, .gallery-item, .contact-form');
-    cards.forEach(card => card.style.backgroundColor = secondaryColor);
-    
-    const modalBox = document.querySelector('.modal > div, .modal-box');
-    if (modalBox) modalBox.style.backgroundColor = secondaryColor;
-
-    document.querySelectorAll('.category-description, #modalContent, .achievement-info p, .form-group label, .form-group input, .form-group textarea, .submit-btn').forEach(el => {
-        // Ajustes finos
-        if(el.tagName === 'LABEL') el.style.color = primaryColor;
-        else if(el.tagName === 'BUTTON') { /* mantem estilo do css */ }
-        else el.style.color = accentColor;
-    });
-    
-    const closeBtn = document.getElementById('closeModal');
-    if(closeBtn) { closeBtn.style.color = accentColor; closeBtn.style.backgroundColor = 'rgba(255,255,255,0.1)'; }
   }
 
+  // --- LISTENERS DE EVENTOS ---
+  
+  // Cards
   document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
         const category = card.getAttribute('data-category');
@@ -228,10 +161,16 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     });
   });
 
+  // Modal Controles
   const btnPrev = document.getElementById('carouselBtnPrev');
   const btnNext = document.getElementById('carouselBtnNext');
   if(btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
   if(btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
+
+  const closeBtnModal = document.getElementById('closeModal');
+  if(closeBtnModal) closeBtnModal.addEventListener('click', closeModal);
+  const modalPopup = document.getElementById('modalPopup');
+  if(modalPopup) modalPopup.addEventListener('click', (e) => { if (e.target === modalPopup) closeModal(); });
 
   document.addEventListener('keydown', (e) => {
       if (!document.getElementById('modalPopup').classList.contains('active')) return;
@@ -239,14 +178,36 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       if (e.key === 'ArrowRight') nextSlide();
       if (e.key === 'Escape') closeModal();
   });
-  
-  // Botão fechar modal
-  const closeBtnModal = document.getElementById('closeModal');
-  if(closeBtnModal) closeBtnModal.addEventListener('click', closeModal);
-  const modalPopup = document.getElementById('modalPopup');
-  if(modalPopup) modalPopup.addEventListener('click', (e) => { if (e.target === modalPopup) closeModal(); });
 
+  // Menu Lateral
+  const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
+  const sidebar = document.getElementById('sidebar');
+  if(menuToggle) menuToggle.addEventListener('click', () => sidebar.classList.add('active'));
+  if(menuClose) menuClose.addEventListener('click', () => sidebar.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => sidebar.classList.remove('active'));
+  });
+
+  // Formulário (Feedback Visual)
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const btn = contactForm.querySelector('.submit-btn');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Enviado!';
+      btn.style.backgroundColor = '#4CAF50';
+      setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.backgroundColor = '';
+          contactForm.reset();
+      }, 3000);
+    });
+  }
+
+  // Inicializa
   if (window.elementSdk) { window.elementSdk.client.on('config', onConfigChange); } 
   else { onConfigChange(defaultConfig); }
 });
-                                                       
+                                 
