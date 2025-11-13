@@ -1,45 +1,40 @@
-// Aguarda o HTML ser totalmente carregado antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
+  // 1. Configuração Padrão com seus textos e dados
   const defaultConfig = {
-    main_title: "Alfeu Vantuir de Lara de Paula",
-    subtitle: "Lutador de Judô / Estudante",
-    description: "Tenho 16 anos, sou estudante do colégio Estadual Prof Julio Szymanski cursando o 2° ano de Desenvolvimento de Sistemas e no contra-turno sou lutador de judô pela prefeitura de Araucária",
+    main_title: "Seu Nome",
+    subtitle: "Sua Profissão ou Frase",
+    description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único.",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
     
     biography_title: "Biografia",
     biography_content: `Eu sou Alfeu Vantuir e, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
 Me considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.
-Sobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.`,
+Sobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo.`,
     
     profession_title: "Profissão",
-    profession_content: `Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
-Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.
-Consegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
+    profession_content: `Meu trabalho atual é o judô, esporte que já pratico há 10 anos. Comecei como faixa branca e hoje sou faixa verde.
+Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô e fiquei em 7º lugar no ranking nacional da minha categoria.`,
     
     friends_title: "Amigos e Família",
-    friends_content: "Fale sobre as pessoas especiais em sua vida - seus amigos mais próximos e sua família. Compartilhe histórias engraçadas, momentos memoráveis e o que essas pessoas significam para você. Descreva as tradições familiares e amizades duradouras.",
+    friends_content: "Fale sobre as pessoas especiais em sua vida - seus amigos mais próximos e sua família.",
     
     relationship_title: "Relacionamento",
-    // --- SEU NOVO TEXTO FOI ADICIONADO AQUI ---
     relationship_content: `Esta pessoa ao meu lado se chama Júlia, e tenho o prazer de chamá-la de minha namorada.
-Não lembro ao certo quando a conheci, mas nos aproximamos mais durante um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Lá, ficamos realmente próximos — treinamos juntos e até nos demos apelidos.
-Depois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Bufokan. O torneio aconteceria durante dois dias: o primeiro seria um treinamento e, o segundo, a competição em si.
-No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31 de agosto, aconteceu o nosso primeiro beijo. Tive a atitude de pedi-la em namoro — e deu tudo certo. Foi incrível!
-Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para o terceiro.`,
+Nos aproximamos durante um treinamento de campo (Kangueiko). Nosso primeiro beijo foi no dia 31 de agosto, após um torneio, e desde então seguimos juntos.`,
     
     school_title: "Escola",
-    school_content: "Descreva sua jornada educacional desde a infância até hoje. Fale sobre suas escolas favoritas, professores marcantes, matérias que você amava e conquistas acadêmicas. Compartilhe memórias da época de estudante e como a educação impactou sua vida.",
+    school_content: "Descreva sua jornada educacional, escolas favoritas e matérias que você amava.",
     
     future_title: "Planos Futuros",
-    future_content: "Compartilhe seus sonhos e planos para o futuro. Onde você se vê daqui a 5 ou 10 anos? Quais são seus objetivos pessoais e profissionais? Fale sobre seus projetos, aspirações e o legado que deseja deixar.",
+    future_content: "Compartilhe seus sonhos e onde você se vê daqui a 5 ou 10 anos.",
     
-    // NOVAS CORES DO TEMA ESCURO
-    primary_color: "#c03c04",
-    secondary_color: "#2d2420",
-    background_color: "#3a312c", 
-    text_color: "#d4dbcc",
+    // Cores do Tema (Estilo Terra/Dark)
+    primary_color: "#c03c04",    // Laranja ferrugem
+    secondary_color: "#2d2420",  // Marrom escuro
+    background_color: "#3a312c", // Fundo cinza/marrom
+    text_color: "#d4dbcc",       // Texto claro
     accent_color: "#d4dbcc"
   };
 
@@ -47,7 +42,7 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // --- `categoryMap` (com os carrosséis atualizados) ---
+  // Mapeamento das categorias e imagens
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -57,13 +52,17 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
+  // --- FUNÇÕES LÓGICAS ---
+
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
     
+    // Atualiza textos
     document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
     document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     
+    // Configura imagens do carrossel
     const slidesContainer = document.querySelector('.carousel-slides');
     const carouselContainer = document.getElementById('modalPhotoContainer');
     
@@ -81,12 +80,14 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
         slidesContainer.appendChild(slide);
       });
     } else {
+      // Placeholder se não houver imagem
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
       slide.style.backgroundColor = '#2d2420'; 
       slidesContainer.appendChild(slide);
     }
     
+    // Mostra setas apenas se tiver mais de 1 foto
     if (totalSlides > 1) {
       carouselContainer.classList.add('has-multiple-slides');
     } else {
@@ -95,19 +96,21 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     
     showSlide(0);
     
+    // Abre o modal e trava o scroll do fundo
     document.getElementById('modalPopup').classList.add('active');
+    document.body.style.overflow = 'hidden'; 
     currentCategory = category;
   }
 
   function closeModal() {
     document.getElementById('modalPopup').classList.remove('active');
+    document.body.style.overflow = ''; // Destrava scroll
     currentCategory = null;
     
+    // Limpa o carrossel após a animação de fechar
     setTimeout(() => {
         const slidesContainer = document.querySelector('.carousel-slides');
-        if (slidesContainer) {
-            slidesContainer.innerHTML = '';
-        }
+        if (slidesContainer) slidesContainer.innerHTML = '';
     }, 400); 
   }
 
@@ -122,175 +125,110 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     slidesContainer.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
   }
   
-  function nextSlide() {
-    showSlide(currentSlideIndex + 1);
-  }
-  
-  function prevSlide() {
-    showSlide(currentSlideIndex - 1);
-  }
+  function nextSlide() { showSlide(currentSlideIndex + 1); }
+  function prevSlide() { showSlide(currentSlideIndex - 1); }
 
+  // Função que aplica as configurações e cores na tela
   async function onConfigChange(config) {
-    document.getElementById('mainTitle').textContent = config.main_title || defaultConfig.main_title;
-    document.getElementById('subtitle').textContent = config.subtitle || defaultConfig.subtitle;
-    document.getElementById('description').textContent = config.description || defaultConfig.description;
-    document.getElementById('sectionTitle').textContent = config.section_title || defaultConfig.section_title;
-    document.getElementById('sectionSubtitle').textContent = config.section_subtitle || defaultConfig.section_subtitle;
-    document.getElementById('biographyTitle').textContent = config.biography_title || defaultConfig.biography_title;
-    document.getElementById('professionTitle').textContent = config.profession_title || defaultConfig.profession_title;
-    document.getElementById('friendsTitle').textContent = config.friends_title || defaultConfig.friends_title;
-    document.getElementById('relationshipTitle').textContent = config.relationship_title || defaultConfig.relationship_title;
-    document.getElementById('schoolTitle').textContent = config.school_title || defaultConfig.school_title;
-    document.getElementById('futureTitle').textContent = config.future_title || defaultConfig.future_title;
+    // Atualiza Textos
+    const textIds = [
+        ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
+        ['sectionTitle', 'section_title'], ['sectionSubtitle', 'section_subtitle'],
+        ['biographyTitle', 'biography_title'], ['professionTitle', 'profession_title'],
+        ['friendsTitle', 'friends_title'], ['relationshipTitle', 'relationship_title'],
+        ['schoolTitle', 'school_title'], ['futureTitle', 'future_title']
+    ];
 
+    textIds.forEach(([id, key]) => {
+        const el = document.getElementById(id);
+        if(el) el.textContent = config[key] || defaultConfig[key];
+    });
+
+    // Atualiza Modal se estiver aberto
     if (currentCategory) {
       const categoryInfo = categoryMap[currentCategory];
       document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
       document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     }
 
+    // --- APLICAÇÃO DAS CORES (A parte que faltava) ---
     const primaryColor = config.primary_color || defaultConfig.primary_color;
     const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
     const backgroundColor = config.background_color || defaultConfig.background_color;
     const textColor = config.text_color || defaultConfig.text_color;
-    const accentColor = config.accent_color || defaultConfig.accent_color;
 
-    document.body.style.background = secondaryColor;
-    document.querySelector('.hero-banner').style.background = primaryColor;
+    // Fundo e Texto Base
+    document.body.style.backgroundColor = backgroundColor;
+    document.body.style.color = textColor;
 
-    document.getElementById('closeModal').style.background = primaryColor;
-    document.querySelector('#modalPopup > div').style.background = backgroundColor;
-    document.querySelector('#modalPopup > div > div[style*="margin-bottom: 30px"] > h2').style.color = textColor; 
-    document.getElementById('modalContent').style.color = textColor;
-    document.getElementById('modalContent').style.borderColor = primaryColor;
-    document.getElementById('modalContent').style.background = 'rgba(0,0,0,0.2)'; 
-    document.getElementById('modalTitle').style.color = textColor;
-    
-    document.querySelectorAll('.carousel-btn').forEach(btn => {
-        btn.style.backgroundColor = `rgba(0, 0, 0, 0.4)`;
-    });
-    
-    document.querySelectorAll('.category-card').forEach(card => {
-        card.addEventListener('mouseenter', () => card.style.borderColor = primaryColor);
-        card.addEventListener('mouseleave', () => card.style.borderColor = 'transparent');
-    });
+    // Títulos (Cor Primária)
+    const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
+    titles.forEach(el => el.style.color = primaryColor);
 
+    // Cards e Elementos Secundários
     const cards = document.querySelectorAll('.category-card');
-    cards.forEach(card => {
-      card.style.background = backgroundColor;
-    });
+    cards.forEach(card => card.style.backgroundColor = secondaryColor);
+    
+    // Fundo interno do Modal
+    const modalBox = document.querySelector('.modal > div');
+    if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    const titles = document.querySelectorAll('.hero-title, .category-title, .section-title, .section-subtitle');
-    titles.forEach(title => {
-      title.style.color = textColor;
-    });
-
-    const descriptions = document.querySelectorAll('.hero-description, .category-description, .modal-text');
-    descriptions.forEach(desc => {
-      desc.style.color = accentColor;
-    });
-
-    const categoriesSection = document.querySelector('.categories-section');
-    categoriesSection.style.background = backgroundColor; 
-
-    document.querySelector('.hero-subtitle').style.color = accentColor;
+    // Textos Secundários
+    const subtexts = document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p');
+    subtexts.forEach(el => el.style.color = textColor);
   }
 
-  if (window.elementSdk) {
-    window.elementSdk.init({
-      defaultConfig,
-      onConfigChange,
-      mapToCapabilities: (config) => ({
-        recolorables: [
-          {
-            get: () => config.primary_color || defaultConfig.primary_color,
-            set: (value) => {
-              config.primary_color = value;
-              window.elementSdk.setConfig({ primary_color: value });
-            }
-          },
-          {
-            get: () => config.secondary_color || defaultConfig.secondary_color,
-            set: (value) => {
-              config.secondary_color = value;
-              window.elementSdk.setConfig({ secondary_color: value });
-            }
-          },
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              config.background_color = value;
-              window.elementSdk.setConfig({ background_color: value });
-            }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              config.text_color = value;
-              window.elementSdk.setConfig({ text_color: value });
-            }
-          },
-          {
-            get: () => config.accent_color || defaultConfig.accent_color,
-            set: (value) => {
-              config.accent_color = value;
-              window.elementSdk.setConfig({ accent_color: value });
-            }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      }),
-      mapToEditPanelValues: (config) => new Map([
-        ["main_title", config.main_title || defaultConfig.main_title],
-        ["subtitle", config.subtitle || defaultConfig.subtitle],
-        ["description", config.description || defaultConfig.description],
-        ["section_title", config.section_title || defaultConfig.section_title],
-        ["section_subtitle", config.section_subtitle || defaultConfig.section_subtitle],
-        ["biography_title", config.biography_title || defaultConfig.biography_title],
-        ["biography_content", config.biography_content || defaultConfig.biography_content],
-        ["profession_title", config.profession_title || defaultConfig.profession_title],
-        ["profession_content", config.profession_content || defaultConfig.profession_content],
-        ["friends_title", config.friends_title || defaultConfig.friends_title],
-        ["friends_content", config.friends_content || defaultConfig.friends_content],
-        ["relationship_title", config.relationship_title || defaultConfig.relationship_title],
-        ["relationship_content", config.relationship_content || defaultConfig.relationship_content],
-        ["school_title", config.school_title || defaultConfig.school_title],
-        ["school_content", config.school_content || defaultConfig.school_content],
-        ["future_title", config.future_title || defaultConfig.future_title],
-        ["future_content", config.future_content || defaultConfig.future_content]
-      ])
-    });
-  }
-  
-  // Aplica a configuração inicial caso o SDK não exista (para testes locais)
-  if (!window.elementSdk) {
-      onConfigChange(defaultConfig);
-  }
+  // --- EVENT LISTENERS (Ouvintes de Cliques) ---
 
-  // Event Listeners para os cards
+  // 1. Clique nos Cards
   document.querySelectorAll('.category-card').forEach(card => {
-    card.addEventListener('click', function() {
-      const category = this.getAttribute('data-category');
-      openModal(category);
+    card.addEventListener('click', () => {
+        const category = card.getAttribute('data-category');
+        openModal(category);
     });
   });
 
-  // Event Listener para fechar o modal
-  document.getElementById('closeModal').addEventListener('click', function() {
-    closeModal();
+  // 2. Botão de Fechar (X)
+  const closeBtn = document.getElementById('closeModal');
+  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+
+  // 3. Clicar fora do modal para fechar
+  const modalPopup = document.getElementById('modalPopup');
+  if(modalPopup) {
+    modalPopup.addEventListener('click', (e) => {
+        if (e.target === modalPopup) closeModal();
+    });
+  }
+
+  // 4. Botões do Carrossel
+  const btnPrev = document.getElementById('carouselBtnPrev');
+  const btnNext = document.getElementById('carouselBtnNext');
+  
+  if(btnPrev) {
+      btnPrev.addEventListener('click', (e) => {
+          e.stopPropagation(); // Não deixa fechar o modal ao clicar na seta
+          prevSlide();
+      });
+  }
+  if(btnNext) {
+      btnNext.addEventListener('click', (e) => {
+          e.stopPropagation();
+          nextSlide();
+      });
+  }
+
+  // 5. Teclado (Setas e ESC)
+  document.addEventListener('keydown', (e) => {
+      if (!document.getElementById('modalPopup').classList.contains('active')) return;
+      if (e.key === 'ArrowLeft') prevSlide();
+      if (e.key === 'ArrowRight') nextSlide();
+      if (e.key === 'Escape') closeModal();
   });
 
-  // Fechar modal ao clicar fora dele
-  document.getElementById('modalPopup').addEventListener('click', function(e) {
-    if (e.target === this) {
-      closeModal();
-    }
-  });
-
-  // --- NOVOS EVENT LISTENERS DO CARROSSEL ---
-  document.getElementById('carouselBtnNext').addEventListener('click', nextSlide);
-  document.getElementById('carouselBtnPrev').addEventListener('click', prevSlide);
-
+  // Inicialização
+  if (window.elementSdk) {
+    window.elementSdk.client.on('config', onConfigChange);
+  } else {
+    onConfigChange(defaultConfig);
+  }
 });
