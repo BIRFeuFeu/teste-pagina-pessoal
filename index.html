@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Site Pessoal</title>
+  <title>Alfeu Vantuir - Judoca</title>
   
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
@@ -15,23 +15,23 @@
   <div class="hero-banner">
     <div class="profile-photo"></div>
     
-    <h1 class="hero-title" id="mainTitle">Seu Nome</h1>
-    <p class="hero-subtitle" id="subtitle">Sua Profissão ou Frase</p>
-    <p class="hero-description" id="description">Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!</p>
+    <h1 class="hero-title" id="mainTitle">Alfeu Vantuir</h1>
+    <p class="hero-subtitle" id="subtitle">Judoca | 16 Anos | Araucária - PR</p>
+    <p class="hero-description" id="description">Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.</p>
   </div>
   
   <div class="container">
     <div class="categories-section">
       <div class="section-header">
         <h2 class="section-title" id="sectionTitle">Conheça Minha História</h2>
-        <p class="section-subtitle" id="sectionSubtitle">Explore diferentes aspectos da minha vida e jornada pessoal</p>
+        <p class="section-subtitle" id="sectionSubtitle">Explore os capítulos da minha vida</p>
       </div>
       <div class="categories-grid">
         
         <div class="category-card" data-category="biography">
           <div class="category-image"></div>
           <div class="category-content">
-            <h2 class="category-title" id="biographyTitle">Biografia</h2>
+            <h2 class="category-title" id="biographyTitle">Quem Sou Eu</h2>
             <p class="category-description">Conheça minha história, de onde vim e as experiências que moldaram quem sou hoje.</p>
           </div>
         </div>
@@ -39,7 +39,7 @@
         <div class="category-card" data-category="profession">
           <div class="category-image"></div>
           <div class="category-content">
-            <h2 class="category-title" id="professionTitle">Profissão</h2>
+            <h2 class="category-title" id="professionTitle">Minha Paixão: Judô</h2>
             <p class="category-description">Descubra minha carreira, habilidades profissionais e conquistas no mundo do trabalho.</p>
           </div>
         </div>
@@ -55,7 +55,7 @@
         <div class="category-card" data-category="relationship">
           <div class="category-image"></div>
           <div class="category-content">
-            <h2 class="category-title" id="relationshipTitle">Relacionamento</h2>
+            <h2 class="category-title" id="relationshipTitle">Minha Namorada</h2>
             <p class="category-description">Minha vida amorosa, relacionamentos significativos e o que valorizo em conexões pessoais.</p>
           </div>
         </div>
@@ -63,7 +63,7 @@
         <div class="category-card" data-category="school">
           <div class="category-image"></div>
           <div class="category-content">
-            <h2 class="category-title" id="schoolTitle">Escola</h2>
+            <h2 class="category-title" id="schoolTitle">Vida Escolar</h2>
             <p class="category-description">Minha jornada educacional, formação acadêmica e aprendizados ao longo dos anos.</p>
           </div>
         </div>
@@ -79,11 +79,11 @@
     </div>
     
     <div id="modalPopup" class="modal">
-      <div style="border-radius: 25px; width: 90%; max-width: 1000px; max-height: 85%; overflow-y: auto; position: relative; box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4); padding: 50px;">
+      <div class="modal-box">
         
-        <button id="closeModal" style="position: absolute; top: 20px; right: 20px; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 28px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); z-index: 10;"> × </button>
+        <button id="closeModal"> × </button>
         
-        <h1 id="modalTitle" style="font-size: 48px; font-weight: bold; margin: 0 0 35px 0; padding-right: 60px;">Título da Categoria</h1>
+        <h1 id="modalTitle">Título da Categoria</h1>
         
         <div id="modalPhotoContainer" class="modal-carousel">
           <div class="carousel-slides">
@@ -93,8 +93,8 @@
         </div>
         
         <div style="margin-bottom: 30px;">
-          <h2 style="font-size: 28px; font-weight: bold; margin: 0 0 20px 0;">Sua História</h2>
-          <div id="modalContent" style="font-size: 18px; line-height: 1.9; white-space: pre-wrap; padding: 25px; border-radius: 15px;"></div>
+          <h2 style="font-size: 28px; font-weight: bold; margin: 0 0 20px 0; color: #C03C04;">Sua História</h2>
+          <div id="modalContent"></div>
         </div>
       </div>
     </div>
