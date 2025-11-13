@@ -22,7 +22,12 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
     friends_content: "Fale sobre as pessoas especiais em sua vida - seus amigos mais próximos e sua família. Compartilhe histórias engraçadas, momentos memoráveis e o que essas pessoas significam para você. Descreva as tradições familiares e amizades duradouras.",
     
     relationship_title: "Relacionamento",
-    relationship_content: "Compartilhe sobre sua vida amorosa e relacionamentos significativos. Fale sobre o que você valoriza em um parceiro, suas experiências românticas e o que o amor significa para você. Conte sua história de amor ou suas expectativas para o futuro.",
+    // --- SEU NOVO TEXTO FOI ADICIONADO AQUI ---
+    relationship_content: `Esta pessoa ao meu lado se chama Júlia, e tenho o prazer de chamá-la de minha namorada.
+Não lembro ao certo quando a conheci, mas nos aproximamos mais durante um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Lá, ficamos realmente próximos — treinamos juntos e até nos demos apelidos.
+Depois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Bufokan. O torneio aconteceria durante dois dias: o primeiro seria um treinamento e, o segundo, a competição em si.
+No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31 de agosto, aconteceu o nosso primeiro beijo. Tive a atitude de pedi-la em namoro — e deu tudo certo. Foi incrível!
+Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para o terceiro.`,
     
     school_title: "Escola",
     school_content: "Descreva sua jornada educacional desde a infância até hoje. Fale sobre suas escolas favoritas, professores marcantes, matérias que você amava e conquistas acadêmicas. Compartilhe memórias da época de estudante e como a educação impactou sua vida.",
@@ -42,7 +47,7 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // --- `categoryMap` com os carrosséis de 2 fotos ---
+  // --- `categoryMap` (com os carrosséis atualizados) ---
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -57,9 +62,6 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
     const categoryInfo = categoryMap[category];
     
     document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
-    
-    // --- CORREÇÃO AQUI ---
-    // Corrigido de "categoryia.content" para "categoryInfo.content"
     document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     
     const slidesContainer = document.querySelector('.carousel-slides');
