@@ -8,11 +8,38 @@
   <script src="/_sdk/element_sdk.js"></script>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="hero-banner">
+
+  <button id="menuToggle" class="menu-btn">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h3>Menu</h3>
+      <button id="menuClose" class="close-btn">×</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#home" class="nav-link"><i class="fas fa-home"></i> Início</a>
+      <a href="#history" class="nav-link"><i class="fas fa-book"></i> Minha História</a>
+      <a href="#achievements" class="nav-link"><i class="fas fa-medal"></i> Conquistas</a>
+      <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Galeria</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contato</a>
+    </nav>
+    <div class="sidebar-footer">
+      <p>Configurações</p>
+      <div class="config-item">
+        <span>Modo Escuro</span>
+        <div class="toggle-switch"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-banner" id="home">
     <div class="profile-photo"></div>
     
     <h1 class="hero-title" id="mainTitle">Alfeu Vantuir</h1>
@@ -21,13 +48,13 @@
   </div>
   
   <div class="container">
-    <div class="categories-section">
+    
+    <div class="categories-section" id="history">
       <div class="section-header">
         <h2 class="section-title" id="sectionTitle">Conheça Minha História</h2>
         <p class="section-subtitle" id="sectionSubtitle">Explore os capítulos da minha vida</p>
       </div>
       <div class="categories-grid">
-        
         <div class="category-card" data-category="biography">
           <div class="category-image"></div>
           <div class="category-content">
@@ -35,7 +62,6 @@
             <p class="category-description">Conheça minha história, de onde vim e as experiências que moldaram quem sou hoje.</p>
           </div>
         </div>
-        
         <div class="category-card" data-category="profession">
           <div class="category-image"></div>
           <div class="category-content">
@@ -43,7 +69,6 @@
             <p class="category-description">Descubra minha carreira, habilidades profissionais e conquistas no mundo do trabalho.</p>
           </div>
         </div>
-        
         <div class="category-card" data-category="friends">
           <div class="category-image"></div>
           <div class="category-content">
@@ -51,7 +76,6 @@
             <p class="category-description">As pessoas mais importantes da minha vida e os momentos especiais que compartilhamos.</p>
           </div>
         </div>
-        
         <div class="category-card" data-category="relationship">
           <div class="category-image"></div>
           <div class="category-content">
@@ -59,7 +83,6 @@
             <p class="category-description">Minha vida amorosa, relacionamentos significativos e o que valorizo em conexões pessoais.</p>
           </div>
         </div>
-        
         <div class="category-card" data-category="school">
           <div class="category-image"></div>
           <div class="category-content">
@@ -67,7 +90,6 @@
             <p class="category-description">Minha jornada educacional, formação acadêmica e aprendizados ao longo dos anos.</p>
           </div>
         </div>
-        
         <div class="category-card" data-category="future">
           <div class="category-image"></div>
           <div class="category-content">
@@ -77,29 +99,91 @@
         </div>
       </div>
     </div>
+
+    <div class="full-section" id="achievements">
+      <div class="section-header">
+        <h2 class="section-title">Quadro de Medalhas</h2>
+        <p class="section-subtitle">Minhas principais conquistas no tatame</p>
+      </div>
+      <div class="achievements-list">
+        <div class="achievement-card">
+          <div class="medal-icon"><i class="fas fa-trophy"></i></div>
+          <div class="achievement-info">
+            <h3>7º Lugar - Brasileiro de Judô (2023)</h3>
+            <p>Classificação nacional entre os melhores atletas do país na categoria.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="medal-icon green-belt"><i class="fas fa-certificate"></i></div>
+          <div class="achievement-info">
+            <h3>Faixa Verde</h3>
+            <p>Conquistada após anos de dedicação e aperfeiçoamento técnico.</p>
+          </div>
+        </div>
+        <div class="achievement-card">
+          <div class="medal-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="achievement-info">
+            <h3>Representante de Araucária</h3>
+            <p>Atleta oficial representando o município em competições regionais e estaduais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-section" id="gallery">
+      <div class="section-header">
+        <h2 class="section-title">Galeria de Fotos</h2>
+        <p class="section-subtitle">Momentos de competição e treino</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item" style="background-image: url('images/profissao.jpg');"></div>
+        <div class="gallery-item" style="background-image: url('images/profissao2.jpg');"></div>
+        <div class="gallery-item" style="background-image: url('images/biografia.jpg');"></div>
+        <div class="gallery-item" style="background-image: url('images/escola.jpg');"></div>
+      </div>
+    </div>
+
+    <div class="full-section contact-container" id="contact">
+      <div class="section-header">
+        <h2 class="section-title">Entre em Contato</h2>
+        <p class="section-subtitle">Dúvidas, parcerias ou patrocínios</p>
+      </div>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label>Seu Nome</label>
+          <input type="text" placeholder="Digite seu nome..." required>
+        </div>
+        <div class="form-group">
+          <label>Seu Email</label>
+          <input type="email" placeholder="email@exemplo.com" required>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar Mensagem</button>
+      </form>
+    </div>
     
     <div id="modalPopup" class="modal">
       <div class="modal-box">
-        
         <button id="closeModal"> × </button>
-        
-        <h1 id="modalTitle">Título da Categoria</h1>
-        
+        <h1 id="modalTitle">Título</h1>
         <div id="modalPhotoContainer" class="modal-carousel">
-          <div class="carousel-slides">
-            </div>
+          <div class="carousel-slides"></div>
           <button id="carouselBtnPrev" class="carousel-btn prev">‹</button>
           <button id="carouselBtnNext" class="carousel-btn next">›</button>
         </div>
-        
         <div style="margin-bottom: 30px;">
           <h2 style="font-size: 28px; font-weight: bold; margin: 0 0 20px 0; color: #C03C04;">Sua História</h2>
           <div id="modalContent"></div>
         </div>
       </div>
     </div>
+
   </div>
   
   <script src="script.js"></script>
 </body>
-</html>
+  </html>
+  
