@@ -94,8 +94,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
 
 .profile-photo {
-  width: 400px; 
-  height: 400px;
+  width: 300px; 
+  height: 300px;
   border-radius: 50%;
   background-image: url("images/profile.jpg"); background-size: cover; 
   background-position: center center;
@@ -207,6 +207,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 [data-theme="dark"] .contact-layout { background: var(--color-card); }
 .contact-info { background-color: var(--color-card); color: white; padding: 50px; }
+/* CORREÇÃO AQUI: Garante que o título dentro do .contact-info seja branco no modo claro */
+.contact-info .section-title { color: white; }
 [data-theme="dark"] .contact-info { background-color: #120f0e; } 
 
 .contact-form-container { padding: 50px; }
@@ -246,36 +248,30 @@ input:checked + .slider:before { transform: translateX(26px); }
 .carousel-slides { display: flex; width: 100%; height: 100%; }
 .carousel-slide { width: 100%; height: 100%; flex-shrink: 0; background-size: cover; background-position: center; }
 
-
-/* 1. CORREÇÃO DEFINITIVA DO TÍTULO DO MODAL: AGORA ELE É UM ELEMENTO DE FLUXO NORMAL */
+/* CORREÇÃO DO FLUXO DO TÍTULO DO MODAL */
 #modalTitle {
-  position: static; /* Remove a flutuação do título */
-  display: block; /* Garante que ele ocupe toda a linha */
-  margin: 0 0 30px 0; /* Adiciona espaço abaixo do título para separá-lo do subtítulo */
-  color: var(--color-text-inverted); /* Corrigido para a cor do texto nos cards */
+  position: static; 
+  display: block; 
+  margin: 0 0 30px 0; 
+  color: var(--color-text-inverted); 
   text-shadow: none; 
   font-size: 2.5rem; 
   text-align: left;
   pointer-events: auto;
 }
 
-/* 2. REMOVE ELEMENTOS VISUAIS E HACKS ANTERIORES */
 .modal-text-area { 
-  padding: 40px 50px; /* Volta ao padding padrão */
-  padding-top: 50px; /* Garante que o texto comece logo após o título */
+  padding: 40px 50px; 
+  padding-top: 50px; 
 }
 
-.modal-carousel::after {
-  content: none; /* Remove o gradiente de fundo que era para o título sobre a foto */
-}
-
-/* 3. Ajusta o subtítulo "Sua História" */
+/* Garante margem para o subtítulo "Sua História" */
 .story-heading { 
     font-size: 1.2rem; 
     color: var(--color-accent); 
     text-transform: uppercase; 
     letter-spacing: 1px; 
-    margin-bottom: 15px; /* Adiciona margem para separar do corpo do texto */
+    margin-bottom: 15px; 
 }
 
 
@@ -310,5 +306,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-            }
+              }
   
