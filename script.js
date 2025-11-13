@@ -9,17 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
     
     biography_title: "Biografia",
-    // --- SEU NOVO TEXTO FOI ADICIONADO AQUI ---
     biography_content: `Eu sou Alfeu Vantuir e, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
 Me considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.
 Sobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.`,
     
     profession_title: "Profissão",
-    profession_content: `Comecei o judô com 6 anos, como faixa branca. Por conta de alguns problemas, acabei parando, mas voltei um ano depois, com a minha sensei atual, Sensei Jacqueline, que atualmente é faixa-preta.
-Quando comecei meu treinamento, meu objetivo era melhorar minha coordenação motora, que era horrível — eu tropeçava nos meus próprios pés e precisava melhorar isso. Felizmente, consegui. Hoje, minha coordenação está muito melhor do que a de muitas pessoas.
-Sobre o futuro, no início eu não tinha visão nenhuma, muito menos sobre quem eu poderia me tornar com o judô. Eu treinava apenas por hobby. Mas, quando fiz 14 anos, comecei a competir de forma séria. Nesse mesmo ano, conquistei η classificação para o Campeonato Brasileiro de Judô — uma conquista muito importante, já que, em Araucária, antes de mim e do meu irmão, apenas minha sensei havia conseguido isso, 13 anos atrás.
-Nesse campeonato, caso eu vencesse, poderia competir internacionalmente — um sonho! Porém, isso não aconteceu. Ganhei quatro lutas, mas perdi duas, o que me deixou fora da competição. Mesmo assim, consegui ficar em sétimo lugar, o que para mim já foi uma grande conquista. Naquele ano, fui o sétimo melhor de todo o Brasil na minha categoria.
-A partir daquele dia, descobri que posso ser mais, que tenho potencial para ir ainda mais longe. Desde então, venho treinando intensamente para realizar o meu sonho: ser um campeão olímpico.`,
+    // --- SEU NOVO TEXTO FOI ADICIONADO AQUI ---
+    profession_content: `Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
+Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.
+Consegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
     
     friends_title: "Amigos e Família",
     friends_content: "Fale sobre as pessoas especiais em sua vida - seus amigos mais próximos e sua família. Compartilhe histórias engraçadas, momentos memoráveis e o que essas pessoas significam para você. Descreva as tradições familiares e amizades duradouras.",
