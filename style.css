@@ -225,7 +225,7 @@ input:checked + .slider:before { transform: translateX(26px); }
   border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;
 }
 
-/* --- MODAL (POP-UP) --- */
+/* --- MODAL --- */
 .modal {
   display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9);
   z-index: 3000; align-items: center; justify-content: center; padding: 20px;
@@ -249,8 +249,18 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* CORREÇÃO FINAL: MARGEM DO CONTEÚDO DO MODAL */
 .modal-text-area { 
   padding: 40px 50px; 
-  padding-top: 140px; /* AUMENTADO DRÁSTICAMENTE o padding superior para garantir que o título grande não invada o texto */
+  padding-top: 220px; /* AUMENTADO NOVAMENTE para dar o máximo de margem de segurança ao título grande */
 }
+
+/* Também remove margem inferior do subtítulo da história para evitar que ele suba */
+.story-heading { 
+    font-size: 1.2rem; 
+    color: var(--color-accent); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-bottom: 0; 
+}
+
 
 #modalTitle {
   position: absolute; bottom: 20px; left: 20px; margin: 0; color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); z-index: 10; font-size: 2.5rem; pointer-events: none;
@@ -290,5 +300,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-                                                                }
-                  
+  }
+               
