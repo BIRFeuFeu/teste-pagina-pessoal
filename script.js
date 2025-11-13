@@ -1,18 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- 1. LÓGICA DO MODO ESCURO (DARK MODE) ---
-  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  // --- PROTEÇÃO CONTRA TELA BRANCA ---
+  // Se algo der errado, isso garante que o site apareça depois de 1 segundo
+  setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.style.opacity = '1');
+  }, 1000);
+
+  // --- 1. ANIMAÇÃO SCROLL REVEAL ---
+  const revealElements = document.querySelectorAll('.reveal');
   
-  // Verifica se o usuário já tinha escolhido um tema
+  // Configuração do Observador
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              // Remove o estilo forçado da proteção acima, se existir
+              entry.target.style.opacity = ''; 
+              observer.unobserve(entry.target);
+          }
+      });
+  }, {
+      root: null,
+      threshold: 0.1 // Reduzi para 10% para garantir que apareça mais fácil
+  });
+
+  revealElements.forEach(el => {
+      revealObserver.observe(el);
+  });
+
+
+  // --- 2. MODO ESCURO (DARK MODE) ---
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
   const currentTheme = localStorage.getItem('theme');
+
   if (currentTheme) {
       document.documentElement.setAttribute('data-theme', currentTheme);
-      if (currentTheme === 'dark') {
+      if (currentTheme === 'dark' && toggleSwitch) {
           toggleSwitch.checked = true;
       }
   }
 
-  // Função de troca de tema
   function switchTheme(e) {
       if (e.target.checked) {
           document.documentElement.setAttribute('data-theme', 'dark');
@@ -22,37 +49,17 @@ document.addEventListener('DOMContentLoaded', () => {
           localStorage.setItem('theme', 'light');
       }
   }
+  
   if(toggleSwitch) {
       toggleSwitch.addEventListener('change', switchTheme, false);
   }
 
-  // --- 2. LÓGICA DE SCROLL REVEAL (ANIMAÇÃO AO ROLAR) ---
-  const revealElements = document.querySelectorAll('.reveal');
 
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-          if (entry.isIntersecting) {
-              entry.target.classList.add('active');
-              observer.unobserve(entry.target); // Para de observar depois que apareceu
-          }
-      });
-  }, {
-      root: null,
-      threshold: 0.15, // Começa a animar quando 15% do elemento aparecer
-      rootMargin: "0px 0px -50px 0px"
-  });
-
-  revealElements.forEach(el => {
-      revealObserver.observe(el);
-  });
-
-  // --- 3. LÓGICA EXISTENTE DO SITE (CONTEÚDO, MODAL, ETC) ---
+  // --- 3. CONTEÚDO E CONFIGURAÇÕES ---
   const defaultConfig = {
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária",
-    section_title: "Conheça Minha História",
-    section_subtitle: "Explore os capítulos da minha vida",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
     
     biography_title: "Quem Sou Eu",
     biography_content: `Eu sou Alfeu Vantuir, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
@@ -86,10 +93,7 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal."
   };
 
-  let currentCategory = null;
-  let currentSlideIndex = 0;
-  let totalSlides = 0;
-
+  // Configuração dos Modais
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -99,47 +103,45 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
+  let currentCategory = null;
+  let currentSlideIndex = 0;
+  let totalSlides = 0;
+
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
     
-    document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
-    document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
+    const modalTitle = document.getElementById('modalTitle');
+    const modalContent = document.getElementById('modalContent');
+    
+    if(modalTitle) modalTitle.textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
+    if(modalContent) modalContent.textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     
     const slidesContainer = document.querySelector('.carousel-slides');
     const carouselContainer = document.getElementById('modalPhotoContainer');
     
-    slidesContainer.innerHTML = ''; 
+    if(slidesContainer) slidesContainer.innerHTML = ''; 
     
     const images = categoryInfo.images || [];
     totalSlides = images.length;
     currentSlideIndex = 0;
     
-    if (totalSlides > 0) {
+    if (totalSlides > 0 && slidesContainer) {
       images.forEach(imgSrc => {
         const slide = document.createElement('div');
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
-
-        if (category === 'profession') {
-            slide.style.backgroundPosition = '50% 20%'; 
-        } else {
-            slide.style.backgroundPosition = 'center center';
-        }
-        
+        if (category === 'profession') slide.style.backgroundPosition = '50% 20%'; 
+        else slide.style.backgroundPosition = 'center center';
         slidesContainer.appendChild(slide);
       });
-    } else {
+      if (totalSlides > 1) carouselContainer.classList.add('has-multiple-slides');
+      else carouselContainer.classList.remove('has-multiple-slides');
+    } else if (slidesContainer) {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
       slide.style.backgroundColor = '#2D2420'; 
       slidesContainer.appendChild(slide);
-    }
-    
-    if (totalSlides > 1) {
-      carouselContainer.classList.add('has-multiple-slides');
-    } else {
-      carouselContainer.classList.remove('has-multiple-slides');
     }
     
     showSlide(0);
@@ -161,10 +163,8 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   function showSlide(index) {
     const slidesContainer = document.querySelector('.carousel-slides');
     if (!slidesContainer || totalSlides === 0) return;
-    
     if (index >= totalSlides) index = 0;
     if (index < 0) index = totalSlides - 1;
-    
     currentSlideIndex = index;
     slidesContainer.style.transform = `translateX(-${currentSlideIndex * 100}%)`;
   }
@@ -185,19 +185,11 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
         const el = document.getElementById(id);
         if(el) el.textContent = config[key] || defaultConfig[key];
     });
-
-    if (currentCategory) {
-      const categoryInfo = categoryMap[currentCategory];
-      document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
-      document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
-    }
   }
 
+  // --- EVENT LISTENERS (CLIQUES) ---
   document.querySelectorAll('.category-card').forEach(card => {
-    card.addEventListener('click', () => {
-        const category = card.getAttribute('data-category');
-        openModal(category);
-    });
+    card.addEventListener('click', () => openModal(card.getAttribute('data-category')));
   });
 
   const btnPrev = document.getElementById('carouselBtnPrev');
@@ -245,4 +237,3 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   if (window.elementSdk) { window.elementSdk.client.on('config', onConfigChange); } 
   else { onConfigChange(defaultConfig); }
 });
-    
