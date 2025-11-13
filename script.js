@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const defaultConfig = {
-    main_title: "Seu Nome",
-    subtitle: "Sua Profissão ou Frase",
+    main_title: "Alfeu Vantuir de Lara de Paula",
+    subtitle: "Lutador de Judô / Estudante",
     description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
