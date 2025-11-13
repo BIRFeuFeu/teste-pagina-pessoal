@@ -5,8 +5,8 @@
   --color-bg: #D4DBCC;        /* Bege Claro */
   --color-card: #2D2420;      /* Marrom Escuro */
   --color-accent: #C03C04;    /* Laranja */
-  --color-text-light: #F0F2EA; /* Quase branco (para textos em fundo escuro) */
-  --color-text-dark: #2D2420;  /* Marrom (para textos em fundo claro) */
+  --color-text-light: #F0F2EA; 
+  --color-text-dark: #2D2420; 
   
   --font-main: 'Poppins', sans-serif;
   --radius-sm: 8px;
@@ -80,9 +80,9 @@ body {
 
 .sidebar-footer { padding: 30px; font-size: 12px; color: rgba(255,255,255,0.3); margin-top: auto; }
 
-/* --- HERO SECTION (Melhorada) --- */
+/* --- HERO SECTION --- */
 .hero-banner {
-  min-height: 95vh; /* Quase tela cheia */
+  min-height: 95vh; 
   display: flex; align-items: center; justify-content: center;
   text-align: center; position: relative;
   padding-top: 50px;
@@ -91,7 +91,7 @@ body {
 .profile-container { position: relative; display: inline-block; margin-bottom: 30px; }
 .profile-photo {
   width: 200px; height: 200px;
-  border-radius: 50%; /* Redondo */
+  border-radius: 50%; 
   background-image: url("images/profile.jpg");
   background-size: cover; background-position: center;
   border: 6px solid var(--color-card);
@@ -133,7 +133,7 @@ body {
 .section-title { font-size: 2.5rem; color: var(--color-card); margin: 0; font-weight: 700; }
 .section-subtitle { color: rgba(45, 36, 32, 0.6); margin-top: 10px; }
 
-/* --- CARDS DE HISTÓRIA (Grid Masonry Look) --- */
+/* --- CARDS DE HISTÓRIA --- */
 .categories-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
 }
@@ -162,13 +162,13 @@ body {
 .category-description { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 20px; flex: 1; }
 .read-more { font-size: 0.9rem; font-weight: bold; color: white; display: flex; align-items: center; gap: 8px; margin-top: auto; }
 
-/* --- CONQUISTAS (Design Clean) --- */
+/* --- CONQUISTAS --- */
 .achievements-grid {
   display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px;
 }
 
 .achievement-card {
-  background: white; /* Destaque no fundo bege */
+  background: white; 
   padding: 30px; border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   display: flex; align-items: flex-start; gap: 20px;
@@ -192,17 +192,27 @@ body {
 .achievement-details .year { font-size: 0.8rem; text-transform: uppercase; color: #999; font-weight: bold; display: block; margin: 5px 0 10px; }
 .achievement-details p { margin: 0; font-size: 0.9rem; color: #666; }
 
-/* --- GALERIA --- */
+/* --- GALERIA (ESTILO PLACEHOLDER) --- */
 .gallery-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 15px;
 }
 .gallery-item {
-  background-size: cover; background-position: center; border-radius: var(--radius-sm);
+  border-radius: var(--radius-sm);
   cursor: pointer; transition: filter 0.3s, transform 0.3s;
 }
-.gallery-item:hover { filter: brightness(1.1); transform: scale(0.98); }
 
-/* Grid irregular para ficar bonito */
+/* Estilo específico para o placeholder vazio */
+.gallery-item.placeholder {
+  background-color: rgba(45, 36, 32, 0.05); /* Fundo bem leve */
+  border: 2px dashed var(--color-accent); /* Borda tracejada laranja */
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--color-accent);
+  font-weight: 600;
+}
+.gallery-item.placeholder i { font-size: 2rem; margin-bottom: 10px; opacity: 0.5; }
+.gallery-item.placeholder:hover { background-color: rgba(192, 60, 4, 0.1); }
+
+/* Grid irregular */
 .gallery-item.wide { grid-column: span 2; }
 .gallery-item.tall { grid-row: span 2; }
 
@@ -271,9 +281,8 @@ body {
   position: absolute; bottom: 20px; left: 20px; margin: 0;
   color: white; text-shadow: 0 2px 10px rgba(0,0,0,0.8); z-index: 5;
   font-size: 2.5rem; pointer-events: none;
-  /* O título agora fica SOBRE a foto para economizar espaço e ficar bonito */
 }
-/* Ajuste para o título aparecer sobre a foto */
+/* Ajuste gradiente título */
 .modal-carousel::after {
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px;
   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
@@ -300,6 +309,5 @@ body {
   .contact-layout { grid-template-columns: 1fr; }
   .modal-text-area { padding: 25px; }
   #modalPhotoContainer { height: 300px; }
-  .sidebar { width: 100%; } /* Sidebar tela cheia no mobile */
-  }
-  
+  .sidebar { width: 100%; } 
+                                      }
