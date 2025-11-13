@@ -92,15 +92,22 @@ input:checked + .slider:before { transform: translateX(26px); }
 
 /* --- HERO SECTION --- */
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
+
+/* AUMENTO DO TAMANHO AQUI */
 .profile-photo {
-  width: 200px; height: 200px; border-radius: 50%;
+  width: 240px; /* Aumentado de 200px */
+  height: 240px; /* Aumentado de 200px */
+  border-radius: 50%;
   background-image: url("images/profile.jpg"); background-size: cover; background-position: center;
-  border: 6px solid var(--color-card); box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  border: 8px solid var(--color-card); /* Borda ajustada para 8px */
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
+
 .status-badge {
   position: absolute; bottom: 10px; right: -10px;
   background-color: var(--color-accent); color: white;
   padding: 5px 15px; border-radius: 20px; font-size: 14px; font-weight: bold;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
 .hero-title { font-size: 4rem; font-weight: 800; margin: 0; color: var(--color-card); line-height: 1.1; letter-spacing: -1px; }
 [data-theme="dark"] .hero-title { color: var(--color-text-inverted); }
@@ -215,11 +222,9 @@ input:checked + .slider:before { transform: translateX(26px); }
   position: relative; overflow-y: auto;
 }
 #closeModal {
-  position: absolute; top: 20px; right: 20px; z-index: 30; /* Z-Index alto para garantir clique */
+  position: absolute; top: 20px; right: 20px; z-index: 30;
   background: rgba(0,0,0,0.5); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer;
 }
-#closeModal:hover { background: var(--color-accent); }
-
 #modalPhotoContainer { height: 450px; width: 100%; background: #000; position: relative; }
 .carousel-slides { display: flex; width: 100%; height: 100%; }
 .carousel-slide { width: 100%; height: 100%; flex-shrink: 0; background-size: cover; background-position: center; }
@@ -231,20 +236,18 @@ input:checked + .slider:before { transform: translateX(26px); }
   content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 150px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); pointer-events: none; z-index: 5;
 }
 
-/* --- [CORREÇÃO] BOTÕES DO CARROSSEL VISÍVEIS --- */
+/* --- BOTÕES DO CARROSSEL VISÍVEIS (AJUSTE FINAL) --- */
 .carousel-btn {
   position: absolute; top: 50%; transform: translateY(-50%);
-  /* Fundo escuro e borda para contraste em qualquer foto */
-  background-color: rgba(0, 0, 0, 0.6); 
+  background-color: rgba(0, 0, 0, 0.65); /* Fundo mais escuro */
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  width: 50px; height: 50px; border-radius: 50%; 
+  border: 2px solid rgba(255, 255, 255, 0.4); /* Borda mais clara */
+  width: 55px; height: 55px; border-radius: 50%; /* Ligeiramente maior */
   
-  z-index: 25; /* Bem alto para ficar acima de tudo */
+  z-index: 25; 
   cursor: pointer; display: none; transition: all 0.3s;
   
-  /* Flex para centralizar o ícone */
-  align-items: center; justify-content: center; font-size: 20px;
+  align-items: center; justify-content: center; font-size: 22px;
 }
 .modal-carousel.has-multiple-slides .carousel-btn { display: flex; }
 .carousel-btn:hover { 
@@ -263,5 +266,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-           }
-                   
+  }
+               
