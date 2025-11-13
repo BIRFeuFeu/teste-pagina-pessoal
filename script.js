@@ -2,44 +2,56 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const defaultConfig = {
-    main_title: "Alfeu Vantuir de Lara de Paula",
-    subtitle: "Lutador de Judô / Estudante",
-    description: "Escreva aqui uma breve descrição sobre você. Conte um pouco sobre sua personalidade, seus interesses e o que faz você único. Esta é sua oportunidade de se apresentar ao mundo!",
+    // --- INFORMAÇÕES PRINCIPAIS ---
+    main_title: "Alfeu Vantuir",
+    subtitle: "Judoca | 16 Anos | Araucária - PR",
+    description: "Bem-vindo ao meu espaço! Sou um cara gentil, empático e que ama sorrir. Tenho um humor ácido e rio de praticamente tudo. Aqui você vai conhecer minha trajetória no judô, meu relacionamento e o que me torna único.",
+    
     section_title: "Conheça Minha História",
-    section_subtitle: "Explore diferentes aspectos da minha vida e jornada pessoal",
+    section_subtitle: "Explore os capítulos da minha vida",
     
-    biography_title: "Biografia",
-    biography_content: `Eu sou Alfeu Vantuir e, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
-Me considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.
-Sobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.`,
+    // --- BIOGRAFIA ---
+    biography_title: "Quem Sou Eu",
+    biography_content: `Eu sou Alfeu Vantuir, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
+Me considero alguém gentil, empático e amável, e sempre tento fazer o bem para todos.
+Sobre minha personalidade: tenho um humor ácido, rio por praticamente tudo, gosto de sorrir e, principalmente, de ser feliz.`,
     
-    profession_title: "Profissão",
-    profession_content: `Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
+    // --- PROFISSÃO (JUDÔ) ---
+    profession_title: "Minha Paixão: Judô",
+    profession_content: `Meu "trabalho" atual e grande paixão é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
+
 Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.
-Consegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
+
+Consegui ficar em 7º lugar dentre todos do país na minha categoria. Considero isso uma grande conquista, algo que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
     
+    // --- AMIGOS E FAMÍLIA ---
     friends_title: "Amigos e Família",
-    friends_content: "Fale sobre as pessoas especiais em sua vida - seus amigos mais próximos e sua família. Compartilhe histórias engraçadas, momentos memoráveis e o que essas pessoas significam para você. Descreva as tradições familiares e amizades duradouras.",
+    friends_content: "Aqui estarão as histórias com meus amigos e minha família, que são a base de tudo para mim.",
     
-    relationship_title: "Relacionamento",
+    // --- RELACIONAMENTO ---
+    relationship_title: "Minha Namorada",
     relationship_content: `Esta pessoa ao meu lado se chama Júlia, e tenho o prazer de chamá-la de minha namorada.
+
 Não lembro ao certo quando a conheci, mas nos aproximamos mais durante um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Lá, ficamos realmente próximos — treinamos juntos e até nos demos apelidos.
+
 Depois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Bufokan. O torneio aconteceria durante dois dias: o primeiro seria um treinamento e, o segundo, a competição em si.
-No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31 de agosto, aconteceu o nosso primeiro beijo. Tive a atitude de pedi-la em namoro — e deu tudo certo. Foi incrível!
-Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para o terceiro.`,
+
+No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31 de agosto, aconteceu o nosso primeiro beijo. Tive a atitude de pedi-la em namoro — e deu tudo certo. Foi incrível! Agora seguimos juntos, firmes e felizes.`,
     
-    school_title: "Escola",
-    school_content: "Descreva sua jornada educacional desde a infância até hoje. Fale sobre suas escolas favoritas, professores marcantes, matérias que você amava e conquistas acadêmicas. Compartilhe memórias da época de estudante e como a educação impactou sua vida.",
+    // --- ESCOLA ---
+    school_title: "Vida Escolar",
+    school_content: "Minha jornada na escola, matérias favoritas e aprendizados.",
     
+    // --- FUTURO ---
     future_title: "Planos Futuros",
-    future_content: "Compartilhe seus sonhos e planos para o futuro. Onde você se vê daqui a 5 ou 10 anos? Quais são seus objetivos pessoais e profissionais? Fale sobre seus projetos, aspirações e o legado que deseja deixar.",
+    future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal.",
     
-    // --- CORES RESTAURADAS (Vermelho e Branco/Claro) ---
-    primary_color: "#cc0000",    // Vermelho vibrante para títulos
-    secondary_color: "#ffffff",  // Branco para os cards
-    background_color: "#f9f9f9", // Fundo bem claro (quase branco)
-    text_color: "#333333",       // Cinza escuro para leitura
-    accent_color: "#cc0000"
+    // --- NOVAS CORES (Solicitadas) ---
+    primary_color: "#C03C04",    // Laranja ferrugem (Títulos)
+    secondary_color: "#2D2420",  // Marrom escuro (Cards e Fundo do Modal)
+    background_color: "#3a312c", // Um tom levemente mais claro para o fundo da página (para dar contraste com os cards)
+    text_color: "#D4DBCC",       // Bege claro (Textos)
+    accent_color: "#D4DBCC"
   };
 
   let currentCategory = null;
@@ -77,10 +89,10 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
 
-        // --- REGRA DE ENQUADRAMENTO (Mantida) ---
-        // Se for Profissão, alinha no TOPO. Se não, alinha no CENTRO.
+        // --- AJUSTE DE ENQUADRAMENTO (PROFISSÃO) ---
         if (category === 'profession') {
-            slide.style.backgroundPosition = 'top center';
+            // Foca na parte superior (50% horizontal, 20% do topo)
+            slide.style.backgroundPosition = '50% 20%'; 
         } else {
             slide.style.backgroundPosition = 'center center';
         }
@@ -90,8 +102,8 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     } else {
       const slide = document.createElement('div');
       slide.className = 'carousel-slide';
-      // Cor de fundo caso não tenha imagem (cinza claro agora)
-      slide.style.backgroundColor = '#eeeeee'; 
+      // Usa a cor secundária (Marrom escuro) como placeholder se não tiver foto
+      slide.style.backgroundColor = defaultConfig.secondary_color; 
       slidesContainer.appendChild(slide);
     }
     
@@ -162,22 +174,22 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
 
     // Fundo do site
     document.body.style.backgroundColor = backgroundColor;
-    // Texto geral
+    // Cor do texto geral
     document.body.style.color = textColor;
 
-    // Títulos e Destaques (Vermelho)
+    // Títulos e Destaques (Cor #C03C04)
     const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
     titles.forEach(el => el.style.color = primaryColor);
 
-    // Cards (Branco)
+    // Cards (Cor #2D2420)
     const cards = document.querySelectorAll('.category-card');
     cards.forEach(card => card.style.backgroundColor = secondaryColor);
     
-    // Fundo do Modal (Branco)
+    // Fundo do Modal (Cor #2D2420)
     const modalBox = document.querySelector('.modal > div');
     if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    // Textos secundários (Cinza Escuro)
+    // Textos descritivos (Cor #D4DBCC)
     const subtexts = document.querySelectorAll('.hero-subtitle, .section-subtitle, .category-description, p');
     subtexts.forEach(el => el.style.color = textColor);
   }
@@ -191,7 +203,12 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
   });
 
   const closeBtn = document.getElementById('closeModal');
-  if(closeBtn) closeBtn.addEventListener('click', closeModal);
+  // Ajusta a cor do botão fechar para combinar com o texto claro
+  if(closeBtn) {
+      closeBtn.style.color = defaultConfig.text_color;
+      closeBtn.style.backgroundColor = 'rgba(0,0,0,0.2)';
+      closeBtn.addEventListener('click', closeModal);
+  }
 
   const modalPopup = document.getElementById('modalPopup');
   if(modalPopup) {
@@ -229,4 +246,3 @@ Agora seguimos juntos, e já estamos no nosso segundo mês de namoro, indo para 
     onConfigChange(defaultConfig);
   }
 });
-    
