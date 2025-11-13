@@ -1,22 +1,55 @@
-// Aguarda o HTML ser totalmente carregado antes de executar o script
 document.addEventListener('DOMContentLoaded', () => {
 
+  // --- LÓGICA DO MENU LATERAL ---
+  const menuToggle = document.getElementById('menuToggle');
+  const menuClose = document.getElementById('menuClose');
+  const sidebar = document.getElementById('sidebar');
+  
+  // Abrir Menu
+  if(menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.add('active');
+    });
+  }
+
+  // Fechar Menu
+  if(menuClose) {
+    menuClose.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  }
+
+  // Fechar ao clicar em um link
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+    });
+  });
+
+  // --- LÓGICA DO FORMULÁRIO (Visual apenas) ---
+  const contactForm = document.getElementById('contactForm');
+  if(contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Obrigado pela mensagem! Entrarei em contato em breve.');
+      contactForm.reset();
+    });
+  }
+
+  // --- DADOS E CORES (Mantidos) ---
   const defaultConfig = {
-    // --- INFORMAÇÕES PRINCIPAIS ---
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
     description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
-    
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
     
-    // --- BIOGRAFIA ---
     biography_title: "Quem Sou Eu",
     biography_content: `Eu sou Alfeu Vantuir, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.
 Me considero alguém gentil, empático e amável, e sempre tento fazer o bem para todos.
 Sobre minha personalidade: tenho um humor ácido, rio por praticamente tudo, gosto de sorrir e, principalmente, de ser feliz.`,
     
-    // --- PROFISSÃO (JUDÔ) ---
     profession_title: "Minha Paixão: Judô",
     profession_content: `Meu trabalho atual é o judô, esporte que pratico há 10 anos, desde os meus 6. Comecei como faixa branca, treinando em Araucária, pelo Judô Araucária, com a minha sensei Jacqueline Osana.
 Com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
@@ -25,12 +58,10 @@ Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conq
 
 Consegui ficar em 7º lugar dentre todos os competidores do Brasil na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
     
-    // --- AMIGOS E FAMÍLIA ---
     friends_title: "Amigos e Família",
     friends_content: "Aqui estarão as histórias com meus amigos e minha família, que são a base de tudo para mim.",
     
-    // --- RELACIONAMENTO ---
-    relationship_title: "Minha Princesa",
+    relationship_title: "Minha Namorada",
     relationship_content: `Esta pessoa ao meu lado se chama Júlia, e tenho o prazer de chamá-la de minha namorada.
 
 Não lembro ao certo quando a conheci, mas nos aproximamos mais durante um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Lá, ficamos realmente próximos — treinamos juntos e até nos demos apelidos.
@@ -39,20 +70,17 @@ Depois disso, só fomos nos ver novamente em um torneio, também em Curitiba, ch
 
 No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31 de agosto, aconteceu o nosso primeiro beijo. Tive a atitude de pedi-la em namoro — e deu tudo certo. Foi incrível! Agora seguimos juntos, firmes e felizes.`,
     
-    // --- ESCOLA ---
     school_title: "Vida Escolar",
     school_content: "Minha jornada na escola, matérias favoritas e aprendizados.",
     
-    // --- FUTURO ---
     future_title: "Planos Futuros",
     future_content: "Meus sonhos e onde pretendo estar nos próximos anos, tanto no esporte quanto na vida pessoal.",
     
-    // --- NOVAS CORES E DISTRIBUIÇÃO (CONTRASTE) ---
-    primary_color: "#C03C04",    // Laranja (Títulos)
-    secondary_color: "#2D2420",  // Marrom Escuro (Cards e Modal)
-    background_color: "#D4DBCC", // BEGE CLARO (Novo Fundo do Site)
-    text_color: "#2D2420",       // Marrom Escuro (Para texto no fundo claro)
-    accent_color: "#D4DBCC"      // Bege Claro (Para texto dentro dos cards escuros)
+    primary_color: "#C03C04",    
+    secondary_color: "#2D2420",  
+    background_color: "#D4DBCC", 
+    text_color: "#2D2420",       
+    accent_color: "#D4DBCC"      
   };
 
   let currentCategory = null;
@@ -144,7 +172,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   function prevSlide() { showSlide(currentSlideIndex - 1); }
 
   async function onConfigChange(config) {
-    // Atualiza textos
     const textIds = [
         ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
         ['sectionTitle', 'section_title'], ['sectionSubtitle', 'section_subtitle'],
@@ -164,49 +191,36 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
     }
 
-    // --- LÓGICA DE CORES RENOVADA ---
-    const primaryColor = config.primary_color || defaultConfig.primary_color;     // Laranja
-    const secondaryColor = config.secondary_color || defaultConfig.secondary_color; // Marrom Escuro
-    const backgroundColor = config.background_color || defaultConfig.background_color; // Bege Claro
-    const textColor = config.text_color || defaultConfig.text_color;               // Marrom Escuro (texto fundo)
-    const accentColor = config.accent_color || defaultConfig.accent_color;         // Bege Claro (texto cards)
+    const primaryColor = config.primary_color || defaultConfig.primary_color;
+    const secondaryColor = config.secondary_color || defaultConfig.secondary_color;
+    const backgroundColor = config.background_color || defaultConfig.background_color;
+    const textColor = config.text_color || defaultConfig.text_color;
+    const accentColor = config.accent_color || defaultConfig.accent_color;
 
-    // 1. Fundo do site (Beige)
     document.body.style.backgroundColor = backgroundColor;
-    
-    // 2. Textos principais no fundo bege (Marrom Escuro)
     document.body.style.color = textColor;
-    document.querySelectorAll('.hero-subtitle, .section-subtitle, .hero-description, p').forEach(el => {
-        // Aplica a todos os parágrafos, mas será sobrescrito nos cards abaixo
-        el.style.color = textColor;
-    });
+    document.querySelectorAll('.hero-subtitle, .section-subtitle, .hero-description, p').forEach(el => { el.style.color = textColor; });
 
-    // 3. Títulos (Laranja)
     const titles = document.querySelectorAll('.hero-title, .section-title, .category-title, #modalTitle');
     titles.forEach(el => el.style.color = primaryColor);
 
-    // 4. Cards e Modal (Fundo Marrom Escuro)
-    const cards = document.querySelectorAll('.category-card');
+    const cards = document.querySelectorAll('.category-card, .achievement-card, .gallery-item, .contact-form');
     cards.forEach(card => card.style.backgroundColor = secondaryColor);
     
     const modalBox = document.querySelector('.modal > div, .modal-box');
     if (modalBox) modalBox.style.backgroundColor = secondaryColor;
 
-    // 5. Textos DENTRO dos Cards e do Modal (Bege Claro para contraste)
-    // Seleciona especificamente as descrições dentro dos cards e o conteúdo do modal
-    document.querySelectorAll('.category-description, #modalContent').forEach(el => {
-        el.style.color = accentColor;
+    document.querySelectorAll('.category-description, #modalContent, .achievement-info p, .form-group label, .form-group input, .form-group textarea, .submit-btn').forEach(el => {
+        // Ajustes finos
+        if(el.tagName === 'LABEL') el.style.color = primaryColor;
+        else if(el.tagName === 'BUTTON') { /* mantem estilo do css */ }
+        else el.style.color = accentColor;
     });
     
-    // Ajusta também o botão de fechar para ficar visível no fundo escuro
     const closeBtn = document.getElementById('closeModal');
-    if(closeBtn) {
-        closeBtn.style.color = accentColor; 
-        closeBtn.style.backgroundColor = 'rgba(255,255,255,0.1)';
-    }
+    if(closeBtn) { closeBtn.style.color = accentColor; closeBtn.style.backgroundColor = 'rgba(255,255,255,0.1)'; }
   }
 
-  // --- EVENTOS DE CLIQUE ---
   document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
         const category = card.getAttribute('data-category');
@@ -214,33 +228,10 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     });
   });
 
-  const closeBtn = document.getElementById('closeModal');
-  if(closeBtn) {
-      closeBtn.addEventListener('click', closeModal);
-  }
-
-  const modalPopup = document.getElementById('modalPopup');
-  if(modalPopup) {
-    modalPopup.addEventListener('click', (e) => {
-        if (e.target === modalPopup) closeModal();
-    });
-  }
-
   const btnPrev = document.getElementById('carouselBtnPrev');
   const btnNext = document.getElementById('carouselBtnNext');
-  
-  if(btnPrev) {
-      btnPrev.addEventListener('click', (e) => {
-          e.stopPropagation();
-          prevSlide();
-      });
-  }
-  if(btnNext) {
-      btnNext.addEventListener('click', (e) => {
-          e.stopPropagation();
-          nextSlide();
-      });
-  }
+  if(btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
+  if(btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
 
   document.addEventListener('keydown', (e) => {
       if (!document.getElementById('modalPopup').classList.contains('active')) return;
@@ -248,10 +239,14 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       if (e.key === 'ArrowRight') nextSlide();
       if (e.key === 'Escape') closeModal();
   });
+  
+  // Botão fechar modal
+  const closeBtnModal = document.getElementById('closeModal');
+  if(closeBtnModal) closeBtnModal.addEventListener('click', closeModal);
+  const modalPopup = document.getElementById('modalPopup');
+  if(modalPopup) modalPopup.addEventListener('click', (e) => { if (e.target === modalPopup) closeModal(); });
 
-  if (window.elementSdk) {
-    window.elementSdk.client.on('config', onConfigChange);
-  } else {
-    onConfigChange(defaultConfig);
-  }
+  if (window.elementSdk) { window.elementSdk.client.on('config', onConfigChange); } 
+  else { onConfigChange(defaultConfig); }
 });
+                                                       
