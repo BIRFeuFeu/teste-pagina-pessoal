@@ -1,6 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  // --- CONFIGURAÇÃO DE TEXTOS E CORES ---
+  // --- 1. LÓGICA DO MODO ESCURO (DARK MODE) ---
+  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  
+  // Verifica se o usuário já tinha escolhido um tema
+  const currentTheme = localStorage.getItem('theme');
+  if (currentTheme) {
+      document.documentElement.setAttribute('data-theme', currentTheme);
+      if (currentTheme === 'dark') {
+          toggleSwitch.checked = true;
+      }
+  }
+
+  // Função de troca de tema
+  function switchTheme(e) {
+      if (e.target.checked) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+      } else {
+          document.documentElement.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+      }
+  }
+  if(toggleSwitch) {
+      toggleSwitch.addEventListener('change', switchTheme, false);
+  }
+
+  // --- 2. LÓGICA DE SCROLL REVEAL (ANIMAÇÃO AO ROLAR) ---
+  const revealElements = document.querySelectorAll('.reveal');
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target); // Para de observar depois que apareceu
+          }
+      });
+  }, {
+      root: null,
+      threshold: 0.15, // Começa a animar quando 15% do elemento aparecer
+      rootMargin: "0px 0px -50px 0px"
+  });
+
+  revealElements.forEach(el => {
+      revealObserver.observe(el);
+  });
+
+  // --- 3. LÓGICA EXISTENTE DO SITE (CONTEÚDO, MODAL, ETC) ---
   const defaultConfig = {
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
@@ -44,7 +90,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // Mapeamento das imagens que aparecem DENTRO do Modal (Pop-up)
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
     profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
@@ -54,7 +99,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
 
-  // --- FUNÇÃO PARA ABRIR O MODAL ---
   function openModal(category) {
     const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
     const categoryInfo = categoryMap[category];
@@ -77,7 +121,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
         slide.className = 'carousel-slide';
         slide.style.backgroundImage = `url("${imgSrc}")`;
 
-        // Ajuste de enquadramento específico para Profissão
         if (category === 'profession') {
             slide.style.backgroundPosition = '50% 20%'; 
         } else {
@@ -129,7 +172,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
   function nextSlide() { showSlide(currentSlideIndex + 1); }
   function prevSlide() { showSlide(currentSlideIndex - 1); }
 
-  // --- ATUALIZAÇÃO DINÂMICA DE TEXTOS ---
   async function onConfigChange(config) {
     const textIds = [
         ['mainTitle', 'main_title'], ['subtitle', 'subtitle'], ['description', 'description'],
@@ -151,9 +193,6 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     }
   }
 
-  // --- CONFIGURAÇÃO DOS LISTENERS (CLIQUES) ---
-  
-  // 1. Cliques nos Cards
   document.querySelectorAll('.category-card').forEach(card => {
     card.addEventListener('click', () => {
         const category = card.getAttribute('data-category');
@@ -161,19 +200,16 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
     });
   });
 
-  // 2. Botões do Carrossel
   const btnPrev = document.getElementById('carouselBtnPrev');
   const btnNext = document.getElementById('carouselBtnNext');
   if(btnPrev) btnPrev.addEventListener('click', (e) => { e.stopPropagation(); prevSlide(); });
   if(btnNext) btnNext.addEventListener('click', (e) => { e.stopPropagation(); nextSlide(); });
 
-  // 3. Botão Fechar Modal
   const closeBtnModal = document.getElementById('closeModal');
   if(closeBtnModal) closeBtnModal.addEventListener('click', closeModal);
   const modalPopup = document.getElementById('modalPopup');
   if(modalPopup) modalPopup.addEventListener('click', (e) => { if (e.target === modalPopup) closeModal(); });
 
-  // 4. Navegação por Teclado
   document.addEventListener('keydown', (e) => {
       if (!document.getElementById('modalPopup').classList.contains('active')) return;
       if (e.key === 'ArrowLeft') prevSlide();
@@ -181,39 +217,32 @@ No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo dia, 31
       if (e.key === 'Escape') closeModal();
   });
 
-  // 5. Menu Lateral (Sidebar)
   const menuToggle = document.getElementById('menuToggle');
   const menuClose = document.getElementById('menuClose');
   const sidebar = document.getElementById('sidebar');
-  
   if(menuToggle) menuToggle.addEventListener('click', () => sidebar.classList.add('active'));
   if(menuClose) menuClose.addEventListener('click', () => sidebar.classList.remove('active'));
-  
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => sidebar.classList.remove('active'));
   });
 
-  // 6. Formulário de Contato (Simulação de Envio)
   const contactForm = document.getElementById('contactForm');
   if(contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const btn = contactForm.querySelector('.submit-btn');
       const originalText = btn.innerHTML;
-      
-      // Feedback visual
-      btn.innerHTML = '<i class="fas fa-check"></i> Mensagem Enviada!';
-      btn.style.backgroundColor = '#4CAF50'; // Verde
-      
+      btn.innerHTML = '<i class="fas fa-check"></i> Enviado!';
+      btn.style.backgroundColor = '#4CAF50';
       setTimeout(() => {
           btn.innerHTML = originalText;
-          btn.style.backgroundColor = ''; // Volta à cor original
+          btn.style.backgroundColor = '';
           contactForm.reset();
       }, 3000);
     });
   }
 
-  // --- INICIALIZAÇÃO ---
   if (window.elementSdk) { window.elementSdk.client.on('config', onConfigChange); } 
   else { onConfigChange(defaultConfig); }
 });
+    
