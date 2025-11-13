@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const defaultConfig = {
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária",
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
     
