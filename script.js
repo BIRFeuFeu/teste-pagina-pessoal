@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- INFORMAÇÕES PRINCIPAIS ---
     main_title: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Bem-vindo ao meu espaço! Sou um cara gentil, empático e que ama sorrir. Tenho um humor ácido e rio de praticamente tudo. Aqui você vai conhecer minha trajetória no judô, meu relacionamento e o que me torna único.",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô, representando o município de Araucária.",
     
     section_title: "Conheça Minha História",
     section_subtitle: "Explore os capítulos da minha vida",
