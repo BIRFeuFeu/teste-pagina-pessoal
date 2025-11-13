@@ -30,7 +30,7 @@ Consegui ficar em 7º lugar dentre todos os competidores do Brasil na minha cate
     friends_content: "Aqui estarão as histórias com meus amigos e minha família, que são a base de tudo para mim.",
     
     // --- RELACIONAMENTO ---
-    relationship_title: "Minha Namorada",
+    relationship_title: "Minha Princesa",
     relationship_content: `Esta pessoa ao meu lado se chama Júlia, e tenho o prazer de chamá-la de minha namorada.
 
 Não lembro ao certo quando a conheci, mas nos aproximamos mais durante um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Lá, ficamos realmente próximos — treinamos juntos e até nos demos apelidos.
