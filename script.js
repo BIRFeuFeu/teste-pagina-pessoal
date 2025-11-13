@@ -14,7 +14,6 @@ Me considero alguém gentil, empático, e amável, e sempre tento fazer o bem, p
 Sobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.`,
     
     profession_title: "Profissão",
-    // --- SEU NOVO TEXTO FOI ADICIONADO AQUI ---
     profession_content: `Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca e, com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.
 Comecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.
 Consegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.`,
@@ -43,12 +42,12 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
   let currentSlideIndex = 0;
   let totalSlides = 0;
 
-  // --- `categoryMap` atualizado ---
+  // --- MUDANÇA AQUI: `categoryMap` atualizado ---
   const categoryMap = {
     biography:    { title: 'biography_title',    content: 'biography_content',    images: ['images/biografia.jpg', 'images/biografia2.jpg', 'images/biografia3.jpg'] },
-    profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg'] },
+    profession:   { title: 'profession_title',   content: 'profession_content',   images: ['images/profissao.jpg', 'images/profissao2.jpg'] },
     friends:      { title: 'friends_title',      content: 'friends_content',      images: ['images/amigos.jpg', 'images/amigos2.jpg'] },
-    relationship: { title: 'relationship_title', content: 'relationship_content', images: ['images/relacionamento.jpg'] },
+    relationship: { title: 'relationship_title', content: 'relationship_content', images: ['images/relacionamento.jpg', 'images/relacionamento2.jpg'] },
     school:       { title: 'school_title',       content: 'school_content',       images: ['images/escola.jpg', 'images/escola2.jpg'] },
     future:       { title: 'future_title',       content: 'future_content',       images: ['images/futuro.jpg'] }
   };
@@ -58,7 +57,7 @@ Consegui ficar em 7º lugar dentre todos do país na minha categoria, e consider
     const categoryInfo = categoryMap[category];
     
     document.getElementById('modalTitle').textContent = config[categoryInfo.title] || defaultConfig[categoryInfo.title];
-    document.getElementById('modalContent').textContent = config[categoryInfo.content] || defaultConfig[categoryInfo.content];
+    document.getElementById('modalContent').textContent = config[categoryia.content] || defaultConfig[categoryInfo.content];
     
     const slidesContainer = document.querySelector('.carousel-slides');
     const carouselContainer = document.getElementById('modalPhotoContainer');
