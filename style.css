@@ -45,11 +45,11 @@ body {
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-/* --- ANIMAÇÃO SCROLL REVEAL --- */
+/* --- ANIMAÇÃO SCROLL REVEAL (AJUSTE DE VELOCIDADE AQUI) --- */
 .reveal {
   opacity: 0; 
   transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transition: all 1.0s ease-out; /* AUMENTADO para 1.0s para suavizar a aparição */
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -94,9 +94,9 @@ input:checked + .slider:before { transform: translateX(26px); }
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
 
 .profile-photo {
-  width: 800px; 
-  height: 800px;
-  border-radius: 50%;
+  width: 900px; 
+  height: 900px;
+  border-radius: 60%;
   background-image: url("images/profile.jpg"); background-size: cover; 
   background-position: center center;
   border: 10px solid var(--color-card); 
@@ -207,7 +207,6 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 [data-theme="dark"] .contact-layout { background: var(--color-card); }
 .contact-info { background-color: var(--color-card); color: white; padding: 50px; }
-/* CORREÇÃO AQUI: Garante que o título dentro do .contact-info seja branco no modo claro */
 .contact-info .section-title { color: white; }
 [data-theme="dark"] .contact-info { background-color: #120f0e; } 
 
@@ -306,5 +305,4 @@ input:checked + .slider:before { transform: translateX(26px); }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-              }
-  
+}
