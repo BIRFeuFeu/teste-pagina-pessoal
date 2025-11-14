@@ -45,11 +45,11 @@ body {
 
 .container { max-width: 1100px; margin: 0 auto; padding: 0 25px; }
 
-/* --- ANIMAÇÃO SCROLL REVEAL (AJUSTE DE VELOCIDADE AQUI) --- */
+/* --- ANIMAÇÃO SCROLL REVEAL (SUAVIDADE REFORÇADA) --- */
 .reveal {
   opacity: 0; 
   transform: translateY(30px);
-  transition: all 1.0s ease-out; /* AUMENTADO para 1.0s para suavizar a aparição */
+  transition: all 1.0s ease-out; 
 }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
@@ -93,13 +93,14 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* --- HERO SECTION --- */
 .hero-banner { min-height: 95vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 50px; }
 
+/* AJUSTE AQUI: TAMANHO DA FOTO E BORDA */
 .profile-photo {
-  width: 900px; 
-  height: 900px;
-  border-radius: 60%;
+  width: 950px; /* Aumentado */
+  height: 950px; /* Aumentado */
+  border-radius: 50%;
   background-image: url("images/profile.jpg"); background-size: cover; 
   background-position: center center;
-  border: 10px solid var(--color-card); 
+  border: 30px solid var(--color-card); /* Borda ajustada para ser proporcional */
   box-shadow: 0 20px 50px rgba(0,0,0,0.3);
 }
 
@@ -301,8 +302,14 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Responsivo */
 @media (max-width: 768px) {
   .hero-title { font-size: 2.5rem; }
-  .profile-photo { width: 180px; height: 180px; border: 6px solid var(--color-card); }
+  /* Ajuste responsivo para a foto de perfil: volta ao tamanho padrão em telas pequenas */
+  .profile-photo { 
+    width: 180px; 
+    height: 180px; 
+    border: 6px solid var(--color-card); 
+  }
   .categories-grid, .achievements-grid, .gallery-grid, .contact-layout { grid-template-columns: 1fr; }
   .sidebar { width: 100%; }
   .gallery-item.wide, .gallery-item.tall { grid-column: auto; grid-row: auto; }
-}
+                                    }
+  
