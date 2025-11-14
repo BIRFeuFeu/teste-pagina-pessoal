@@ -79,11 +79,15 @@ Consegui ficar em 7º lugar dentre todos os competidores do Brasil na minha cate
     
     relationship_title: "Minha Namorada",
     relationship_content: `Essa mulher linda ao meu lado se chama Júlia, e tenho o privilégio de chamá-la de amor da minha vida.
+    
 Estamos juntos desde o dia do nosso primeiro beijo, 31 de agosto, dia em que começou a nossa história de amor.
+
 Não lembro ao certo quando a conheci, mas nos aproximamos muito rápido. Lembro de um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Foi lá que ficamos realmente próximos: treinamos juntos, almoçamos juntos e passamos praticamente o dia inteiro interagindo. Até nos demos apelidos.
 Depois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Budokan. O torneio aconteceria em dois dias: o primeiro seria um treinamento e o segundo, a competição em si.
+
 No primeiro dia, treinamos juntos e conversamos bastante. Já no segundo, aconteceu o nosso primeiro beijo, e foi mágico. Depois de passarmos o dia inteiro juntos, eu tive a atitude de pedi-la em namoro, e deu tudo certo. Foi incrível!
 Desde então, seguimos juntos, nos amando muito. É um amor recíproco, algo que sempre sonhei e que finalmente encontrei nela, alguém que já me fez tão feliz em tão pouco tempo.
+
 Estamos no nosso segundo mês de namoro e ansiosos por tudo o que ainda vamos viver, juntos e unidos.`,
     
     school_title: "Vida Escolar",
