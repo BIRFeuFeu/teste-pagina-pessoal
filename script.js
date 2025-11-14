@@ -1,32 +1,31 @@
 // --- DADOS DO CONTEÚDO (MOCK DATABASE) ---
-// Note: Você pode querer adicionar as imagens da sua galeria aqui se quiser que elas apareçam no carrossel do modal.
 const contentData = {
-    // Conteúdo da Página Inicial (Hero)
+    // Conteúdo da Página Inicial (Hero) - NOVO TEXTO AQUI
     mainTitle: "Alfeu Vantuir",
     subtitle: "Judoca | 16 Anos | Araucária - PR",
-    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô representando o município de Araucária.",
+    description: "Sou Estudante do Colégio Estadual Professor Júlio Szymanski, onde curso o técnico de Desenvolvimento de Sistemas, e no contra-turno, sou atleta competidor de Judô, representando o município de Araucária.",
     
-    // Conteúdo de Biografia
+    // Conteúdo de Biografia - NOVO TEXTO AQUI
     biography_title: "Quem Sou Eu",
-    biography_content: "Eu sou Alfeu Vantuir, tenho 16 anos e meu aniversário é em 2009, porém sempre morei em Araucária. Minha família é meu bem mais precioso, e sempre tento fazer o bem para todos. Sobre mim? Sou quem faz as pessoas sorrir e, principalmente, meu espelho sorrir.",
+    biography_content: "Eu sou Alfeu Vantuir e, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.\nMe considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.\nSobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.",
     
-    // Conteúdo de Profissão (Judô)
+    // Conteúdo de Profissão - NOVO TEXTO AQUI
     profession_title: "Minha Paixão: Judô",
-    profession_content: "Comecei no Judô em 2015, na faixa branca. Dediquei-me com foco, avançando anualmente até alcançar a Faixa Verde em 2023. Em 2023, fui 7º lugar no Campeonato Brasileiro de Judô, representando o estado do Paraná. Minha maior inspiração é o meu Sensei, que sempre me guiou.",
+    profession_content: "Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca, treinando em Araucária, pelo Judô Araucária, e com minha Sensei Jacqueline Osana.\nE com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.\nComecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.\nConsegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.",
     
-    // Conteúdo Amigos e Família
+    // Conteúdo Amigos e Família (INALTERADO)
     friends_title: "Amigos e Família",
     friends_content: "Minha família é a minha base. Sou extremamente grato aos meus pais e irmãs, que me apoiam incondicionalmente no esporte e nos estudos. Meus amigos são aqueles que tornam o dia a dia na escola e nos treinos mais leve, dividindo risadas e desafios.",
     
-    // Conteúdo Relacionamento
+    // Conteúdo Relacionamento - NOVO TEXTO AQUI
     relationship_title: "Minha Namorada",
-    relationship_content: "Eu e minha namorada Julia começamos a namorar em 2024. Nossa história é construída em base de apoio mútuo, respeito e muito carinho. Ela é minha maior apoiadora fora do tatame.",
+    relationship_content: "Essa mulher linda ao meu lado se chama Júlia, e tenho o privilégio de chamá-la de amor da minha vida.\nEstamos juntos desde o dia do nosso primeiro beijo, 31 de agosto, dia em que começou a nossa história de amor.\nNão lembro ao certo quando a conheci, mas nos aproximamos muito rápido. Lembro de um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Foi lá que ficamos realmente próximos: treinamos juntos, almoçamos juntos e passamos praticamente o dia inteiro interagindo. Até nos demos apelidos.\nDepois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Budokan. O torneio aconteceria em dois dias: o primeiro seria um treinamento e o segundo, a competição em si.\nNo primeiro dia, treinamos juntos e conversamos bastante. Já no segundo, aconteceu o nosso primeiro beijo, e foi mágico. Depois de passarmos o dia inteiro juntos, eu tive a atitude de pedi-la em namoro, e deu tudo certo. Foi incrível!\nDesde então, seguimos juntos, nos amando muito. É um amor recíproco, algo que sempre sonhei e que finalmente encontrei nela, alguém que já me fez tão feliz em tão pouco tempo.\nEstamos no nosso segundo mês de namoro e ansiosos por tudo o que ainda vamos viver, juntos e unidos.",
     
-    // Conteúdo Vida Escolar
+    // Conteúdo Vida Escolar (INALTERADO)
     school_title: "Vida Escolar",
     school_content: "Atualmente, sou aluno do Colégio Estadual Professor Júlio Szymanski, cursando o Técnico em Desenvolvimento de Sistemas. O curso me permite explorar minha paixão por tecnologia e programação, equilibrando minha rotina com os treinos de Judô.",
 
-    // Conteúdo Planos Futuros
+    // Conteúdo Planos Futuros (INALTERADO)
     future_title: "Planos Futuros",
     future_content: "Meus planos futuros são conciliar minha carreira no Judô, visando competições de alto nível, com a formação na área de TI. Pretendo ingressar em uma faculdade de Ciência da Computação e aplicar meu raciocínio lógico, aprimorado no esporte, na programação.",
 };
@@ -154,6 +153,7 @@ categories.forEach(card => {
         const data = categoryMap[categoryKey];
 
         // 1. Injeta título e conteúdo
+        // Substituímos o \n (nova linha) por </p><p> para criar parágrafos no modal
         modalTitle.textContent = contentData[data.title];
         modalContent.innerHTML = `<p>${contentData[data.content].replace(/\n/g, '</p><p>')}</p>`;
 
@@ -218,3 +218,4 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         
     }, 2000);
 });
+                          
