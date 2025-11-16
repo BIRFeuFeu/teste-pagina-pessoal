@@ -197,7 +197,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 .achievement-details p { margin: 0; font-size: 0.9rem; color: #666; }
 [data-theme="dark"] .achievement-details p { color: #ccc; }
 
-/* --- GALERIA (AJUSTE AQUI: Aumentando a altura padrão das linhas) --- */
+/* --- GALERIA --- */
 .gallery-grid { 
   display: grid; 
   grid-template-columns: repeat(4, 1fr); 
@@ -212,6 +212,30 @@ input:checked + .slider:before { transform: translateX(26px); }
 }
 .gallery-item.wide { grid-column: span 2; } 
 .gallery-item.tall { grid-row: span 2; } 
+
+/* **** NOVAS CLASSES DE GALERIA ADICIONADAS **** */
+.gallery-item.size-3x3 {
+  grid-column: span 3;
+  grid-row: span 3;
+}
+.gallery-item.size-2x4 {
+  grid-column: span 2;
+  grid-row: span 4;
+}
+.gallery-item.size-4x2 {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+.gallery-item.size-2x3 {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+.gallery-item.size-3x2 {
+  grid-column: span 3;
+  grid-row: span 2;
+}
+/* *************************************** */
+
 
 /* --- CONTATO --- */
 .contact-layout {
@@ -344,13 +368,32 @@ input:checked + .slider:before { transform: translateX(26px); }
     gap: 10px;
   }
   
-  /* Galeria: Desativa tamanhos largos (wide) e altos (tall) para evitar quebras em telas muito pequenas */
-  .gallery-item.wide, 
-  .gallery-item.tall { 
-    grid-column: span 2; /* wide ocupa 2 colunas */
-    grid-row: span 2; /* tall ocupa 2 linhas */
-  }
+  /* Galeria: Ajusta tamanhos para responsivo */
+  .gallery-item.wide { grid-column: span 2; } 
+  .gallery-item.tall { grid-row: span 2; } 
   
+  /* NOVAS CLASSES NO RESPONSIVO */
+  .gallery-item.size-3x3 {
+    grid-column: span 3;
+    grid-row: span 3;
+  }
+  .gallery-item.size-2x4 {
+    grid-column: span 2;
+    grid-row: span 4;
+  }
+  .gallery-item.size-4x2 {
+    grid-column: span 4;
+    grid-row: span 2;
+  }
+  .gallery-item.size-2x3 {
+    grid-column: span 2;
+    grid-row: span 3;
+  }
+  .gallery-item.size-3x2 {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
   /* Reduz o padding da seção de contato para melhor ajuste */
   .contact-info, 
   .contact-form-container {
@@ -361,5 +404,4 @@ input:checked + .slider:before { transform: translateX(26px); }
   .modal-text-area { 
     padding: 30px; 
   }
-  }
-  
+}
