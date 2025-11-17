@@ -210,30 +210,21 @@ input:checked + .slider:before { transform: translateX(26px); }
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   color: var(--color-accent); font-weight: 600;
 }
+
+/* Classes de tamanho padrão */
 .gallery-item.wide { grid-column: span 2; } 
 .gallery-item.tall { grid-row: span 2; } 
 
-/* **** NOVAS CLASSES DE GALERIA ADICIONADAS **** */
+/* **** CLASSES PERSONALIZADAS MANTIDAS **** */
 .gallery-item.size-3x3 {
   grid-column: span 3;
   grid-row: span 3;
-}
-.gallery-item.size-2x4 {
-  grid-column: span 2;
-  grid-row: span 4;
 }
 .gallery-item.size-4x2 {
   grid-column: span 4;
   grid-row: span 2;
 }
-.gallery-item.size-2x3 {
-  grid-column: span 2;
-  grid-row: span 3;
-}
-.gallery-item.size-3x2 {
-  grid-column: span 3;
-  grid-row: span 2;
-}
+/* Classes 2x4, 2x3 e 3x2 removidas */
 /* *************************************** */
 
 
@@ -377,20 +368,8 @@ input:checked + .slider:before { transform: translateX(26px); }
     grid-column: span 3;
     grid-row: span 3;
   }
-  .gallery-item.size-2x4 {
-    grid-column: span 2;
-    grid-row: span 4;
-  }
   .gallery-item.size-4x2 {
     grid-column: span 4;
-    grid-row: span 2;
-  }
-  .gallery-item.size-2x3 {
-    grid-column: span 2;
-    grid-row: span 3;
-  }
-  .gallery-item.size-3x2 {
-    grid-column: span 3;
     grid-row: span 2;
   }
 
@@ -404,4 +383,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .modal-text-area { 
     padding: 30px; 
   }
-}
+  }
+  
