@@ -89,7 +89,15 @@ async function fetchData(lang = defaultLanguage) {
             throw new Error(`Erro ao carregar dados: ${response.statusText}`);
         }
         siteData = await response.json();
+        
+        // Funções que dependem dos dados do JSON
         populateContent();
+        
+        // **** ESTA É A CORREÇÃO! ****
+        // Mover a configuração do Modal para AQUI
+        // garante que `siteData` está preenchido.
+        setupModal(); 
+        
     } catch (error) {
         console.error("Falha ao buscar dados:", error);
     }
@@ -113,8 +121,6 @@ function populateContent() {
         const card = document.querySelector(`.category-card[data-category="${category.id}"]`);
         if (card) {
             card.querySelector('.category-title').textContent = category.title;
-            // A descrição já está no HTML, mas poderíamos sobrepor:
-            // card.querySelector('.category-description').textContent = category.description; 
         }
     });
   
@@ -156,12 +162,13 @@ function setupModal() {
     categoryCards.forEach(card => {
         card.addEventListener('click', () => {
             const categoryId = card.getAttribute('data-category');
+            
+            // Agora `siteData` está garantidamente preenchido
             const categoryData = siteData.history.categories.find(c => c.id === categoryId);
             
             if (categoryData) {
                 // 1. Popula conteúdo de texto
                 modalTitle.textContent = categoryData.title;
-                // Converte quebras de linha (\n) em <br> para o HTML
                 modalContent.innerHTML = categoryData.modal_text.replace(/\n/g, '<br>');
 
                 // 2. Popula o carrossel de fotos
@@ -236,9 +243,6 @@ function updateCarousel(totalSlides) {
 /* --- 6. LÓGICA DO BOTÃO "CARREGAR MAIS" (GALERIA) --- */
 /* =================================================== */
 
-/* Esta função adiciona a funcionalidade ao botão "Ver Mais Fotos" 
-  que só aparece em ecrãs de telemóvel (controlado pelo CSS).
-*/
 function setupGalleryLoadMore() {
   const galleryGrid = document.getElementById('galleryGrid');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -248,12 +252,8 @@ function setupGalleryLoadMore() {
     
     loadMoreBtn.addEventListener('click', function() {
       
-      // 1. Adiciona a classe "expanded" à grelha
-      // O CSS vai tratar de mostrar os itens escondidos
+      // Adiciona a classe "expanded" à grelha
       galleryGrid.classList.add('expanded');
-      
-      // 2. O botão será escondido automaticamente pelo CSS
-      // (graças à regra ".gallery-grid.expanded + .load-more-btn")
     });
   }
 }
@@ -264,14 +264,19 @@ function setupGalleryLoadMore() {
 
 // Quando o DOM estiver pronto
 document.addEventListener("DOMContentLoaded", function() {
+    // Funções que NÃO dependem do JSON
     setupMenu();
-    setupModal();
-    setupGalleryLoadMore(); // Nova função da galeria
-    fetchData(); // Busca os dados do JSON
-    
-    // Ativa o scroll reveal na carga inicial
+    setupGalleryLoadMore(); 
     scrollReveal();
+
+    // **** ESTA É A MUDANÇA! ****
+    // A função setupModal() foi REMOVIDA DAQUI...
+    
+    // Função que busca os dados e DEPOIS chama
+    // as funções dependentes (populateContent e setupModal)
+    fetchData(); 
 });
 
 // Evento de scroll para a animação
 window.addEventListener('scroll', scrollReveal);
+        
