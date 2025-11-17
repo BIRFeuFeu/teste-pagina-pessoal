@@ -13,8 +13,9 @@
         "title": "Biografia",
         "modal_text": "[ESCREVA O SEU TEXTO DA BIOGRAFIA AQUI. \nLembre-se que o \\n (como este) cria uma nova linha.]",
         "photos": [
-          "images/profile.jpg",
-          "images/biografia.jpg"
+          "images/biografia.jpg",
+          "images/biografia2.jpg",
+          "images/biografia3.jpg"
         ]
       },
       {
@@ -22,7 +23,8 @@
         "title": "Profissão",
         "modal_text": "[ESCREVA O SEU TEXTO SOBRE PROFISSÃO AQUI...]",
         "photos": [
-          "images/profissao.jpg"
+          "images/profissao.jpg",
+          "images/profissao2.jpg"
         ]
       },
       {
