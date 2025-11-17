@@ -156,7 +156,7 @@
         <p class="section-subtitle">Espaço reservado para novas fotos de campeonatos</p>
       </div>
       
-      <div class="gallery-grid">
+      <div class="gallery-grid" id="galleryGrid">
         
         <div class="gallery-item tall reveal" style="background-image: url('images/IMG_20251113_201413.jpg');">
         </div>
@@ -198,59 +198,15 @@
         </div>
         
       </div>
-      </div>
+      <button id="loadMoreBtn" class="load-more-btn reveal">Ver Mais Fotos</button>
+      
+    </div>
 
     <div class="section-wrapper" id="contact">
-      <div class="contact-layout reveal">
-        <div class="contact-info">
-          <h2 class="section-title">Vamos Conversar?</h2>
-          <p>Estou disponível para parcerias, dúvidas sobre judô ou apenas para trocar uma ideia sobre tecnologia e esporte.</p>
-          <div class="contact-methods">
-            <div class="method"><i class="fas fa-envelope"></i> contato@alfeuvantuir.com</div>
-            <div class="method"><i class="fas fa-map-pin"></i> Araucária, Paraná</div>
-          </div>
-        </div>
-        <div class="contact-form-container">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label>Seu Nome</label>
-              <input type="text" required>
-            </div>
-            <div class="form-group">
-              <label>Seu Email</label>
-              <input type="email" required>
-            </div>
-            <div class="form-group">
-              <label>Mensagem</label>
-              <textarea rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
       </div>
-    </div>
     
-    <div id="modalPopup" class="modal">
-      <div class="modal-box">
-        <button id="closeModal"> <i class="fas fa-times"></i> </button>
-        
-        <div id="modalPhotoContainer" class="modal-carousel">
-          <div class="carousel-slides"></div>
-          <button id="carouselBtnPrev" class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
-          <button id="carouselBtnNext" class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        
-        <div class="modal-text-area">
-          <h1 id="modalTitle">Título</h1>
-          <h2 class="story-heading">Sua História</h2>
-          <div id="modalContent"></div>
-        </div>
-      </div>
-    </div>
-
   </div>
   
   <script src="script.js"></script>
 </body>
-        </html>
-  
+</html>
