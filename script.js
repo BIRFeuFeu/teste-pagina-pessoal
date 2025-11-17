@@ -1,12 +1,9 @@
-Java:
 /* =================================================== */
-/* --- 1. CONFIGURAÇÃO GERAL (TEMA E DADOS) --- */
+/* --- 1. CONFIGURAÇÃO GERAL (TEMA) --- */
 /* =================================================== */
 
 const themeToggle = document.getElementById("checkbox");
 const currentTheme = localStorage.getItem("theme");
-const defaultLanguage = "pt-BR";
-let siteData = {};
 
 // Aplica o tema salvo (dark/light)
 if (currentTheme) {
@@ -80,64 +77,62 @@ function scrollReveal() {
 }
 
 /* =================================================== */
-/* --- 4. BUSCA E POPULAÇÃO DE DADOS (JSON) --- */
+/* --- 4. BUSCA E POPULAÇÃO DE DADOS (REMOVIDO) --- */
 /* =================================================== */
 
-async function fetchData(lang = defaultLanguage) {
-    try {
-        const response = await fetch(`data_${lang}.json`);
-        if (!response.ok) {
-            throw new Error(`Erro ao carregar dados: ${response.statusText}`);
-        }
-        siteData = await response.json();
-        populateContent();
-    } catch (error) {
-        console.error("Falha ao buscar dados:", error);
-    }
-}
-
-// Função para popular o conteúdo
-function populateContent() {
-    if (!siteData.hero) return; // Verifica se os dados existem
-
-    // Hero
-    document.getElementById('mainTitle').textContent = siteData.hero.title;
-    document.getElementById('subtitle').textContent = siteData.hero.subtitle;
-    document.getElementById('description').textContent = siteData.hero.description;
-
-    // Seção "Conheça Minha História"
-    document.getElementById('sectionTitle').textContent = siteData.history.sectionTitle;
-    document.getElementById('sectionSubtitle').textContent = siteData.history.sectionSubtitle;
-
-    // Popula os 6 cards de categoria
-    siteData.history.categories.forEach(category => {
-        const card = document.querySelector(`.category-card[data-category="${category.id}"]`);
-        if (card) {
-            card.querySelector('.category-title').textContent = category.title;
-            // A descrição já está no HTML, mas poderíamos sobrepor:
-            // card.querySelector('.category-description').textContent = category.description; 
-        }
-    });
-  
-    // Atualiza os títulos dos Cards (que também são usados no Modal)
-    const biographyTitle = document.getElementById('biographyTitle');
-    const professionTitle = document.getElementById('professionTitle');
-    const friendsTitle = document.getElementById('friendsTitle');
-    const relationshipTitle = document.getElementById('relationshipTitle');
-    const schoolTitle = document.getElementById('schoolTitle');
-    const futureTitle = document.getElementById('futureTitle');
-
-    if (biographyTitle) biographyTitle.textContent = siteData.history.categories.find(c => c.id === 'biography').title;
-    if (professionTitle) professionTitle.textContent = siteData.history.categories.find(c => c.id === 'profession').title;
-    if (friendsTitle) friendsTitle.textContent = siteData.history.categories.find(c => c.id === 'friends').title;
-    if (relationshipTitle) relationshipTitle.textContent = siteData.history.categories.find(c => c.id === 'relationship').title;
-    if (schoolTitle) schoolTitle.textContent = siteData.history.categories.find(c => c.id === 'school').title;
-    if (futureTitle) futureTitle.textContent = siteData.history.categories.find(c => c.id === 'future').title;
-}
+// A função fetchData(JSON) foi removida.
+// O conteúdo agora é estático no HTML.
 
 /* =================================================== */
 /* --- 5. CONTROLO DO MODAL (POP-UP) E CARROSSEL --- */
 /* =================================================== */
+
+// --- DADOS FALSOS (MOCK DATA) --- 
+// Como removemos o JSON, precisamos simular os dados aqui
+// para o Modal funcionar.
+const siteData = {
+    history: {
+        categories: [
+            {
+                id: "biography",
+                title: "Biografia",
+                modal_text: "Este é o texto da biografia...\nFoi aqui que tudo começou.",
+                photos: ["images/biografia.jpg", "images/profile.jpg"]
+            },
+            {
+                id: "profession",
+                title: "Profissão",
+                modal_text: "Este é o texto da profissão...",
+                photos: ["images/profissao.jpg"]
+            },
+            {
+                id: "friends",
+                title: "Amigos",
+                modal_text: "Este é o texto sobre amigos...",
+                photos: ["images/amigos.jpg"]
+            },
+            {
+                id: "relationship",
+                title: "Relacionamento",
+                modal_text: "Este é o texto sobre relacionamento...",
+                photos: ["images/relacionamento.jpg"]
+            },
+            {
+                id: "school",
+                title: "Escola",
+                modal_text: "Este é o texto sobre escola...",
+                photos: ["images/escola.jpg"]
+            },
+            {
+                id: "future",
+                title: "Futuro",
+                modal_text: "Este é o texto sobre o futuro...",
+                photos: ["images/futuro.jpg"]
+            }
+        ]
+    }
+};
+// --- FIM DOS DADOS FALSOS ---
 
 let currentSlide = 0;
 
@@ -157,12 +152,12 @@ function setupModal() {
     categoryCards.forEach(card => {
         card.addEventListener('click', () => {
             const categoryId = card.getAttribute('data-category');
+            // Usar os dados FALSOS que definimos acima
             const categoryData = siteData.history.categories.find(c => c.id === categoryId);
             
             if (categoryData) {
                 // 1. Popula conteúdo de texto
                 modalTitle.textContent = categoryData.title;
-                // Converte quebras de linha (\n) em <br> para o HTML
                 modalContent.innerHTML = categoryData.modal_text.replace(/\n/g, '<br>');
 
                 // 2. Popula o carrossel de fotos
@@ -237,9 +232,6 @@ function updateCarousel(totalSlides) {
 /* --- 6. LÓGICA DO BOTÃO "CARREGAR MAIS" (GALERIA) --- */
 /* =================================================== */
 
-/* Esta função adiciona a funcionalidade ao botão "Ver Mais Fotos" 
-  que só aparece em ecrãs de telemóvel (controlado pelo CSS).
-*/
 function setupGalleryLoadMore() {
   const galleryGrid = document.getElementById('galleryGrid');
   const loadMoreBtn = document.getElementById('loadMoreBtn');
@@ -249,12 +241,8 @@ function setupGalleryLoadMore() {
     
     loadMoreBtn.addEventListener('click', function() {
       
-      // 1. Adiciona a classe "expanded" à grelha
-      // O CSS vai tratar de mostrar os itens escondidos
+      // Adiciona a classe "expanded" à grelha
       galleryGrid.classList.add('expanded');
-      
-      // 2. O botão será escondido automaticamente pelo CSS
-      // (graças à regra ".gallery-grid.expanded + .load-more-btn")
     });
   }
 }
@@ -268,7 +256,6 @@ document.addEventListener("DOMContentLoaded", function() {
     setupMenu();
     setupModal();
     setupGalleryLoadMore(); // Nova função da galeria
-    fetchData(); // Busca os dados do JSON
     
     // Ativa o scroll reveal na carga inicial
     scrollReveal();
