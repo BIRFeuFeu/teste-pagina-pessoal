@@ -11,16 +11,16 @@
       {
         "id": "biography",
         "title": "Biografia",
-        "modal_text": "Este é o texto de exemplo para a biografia.\nEu nasci em [Cidade] e comecei no judô aos [Idade] anos. A minha paixão pelo desporto foi imediata.\n\nEste texto pode ser tão longo quanto você quiser, e as quebras de linha (como esta) são suportadas.",
+        "modal_text": "[ESCREVA O SEU TEXTO DA BIOGRAFIA AQUI. \nLembre-se que o \\n (como este) cria uma nova linha.]",
         "photos": [
-          "images/biografia.jpg",
-          "images/profile.jpg"
+          "images/profile.jpg",
+          "images/biografia.jpg"
         ]
       },
       {
         "id": "profession",
         "title": "Profissão",
-        "modal_text": "Este é o texto para 'Profissão'.\nAtualmente, sou [Sua Profissão ou 'Estudante']. Tento equilibrar os meus treinos com [outra atividade].",
+        "modal_text": "[ESCREVA O SEU TEXTO SOBRE PROFISSÃO AQUI...]",
         "photos": [
           "images/profissao.jpg"
         ]
@@ -28,15 +28,17 @@
       {
         "id": "friends",
         "title": "Amigos",
-        "modal_text": "Este é o texto para 'Amigos'.\nOs meus amigos são a minha segunda família. Eles apoiam-me...",
+        "modal_text": "[ESCREVA O SEU TEXTO SOBRE AMIGOS AQUI...]",
         "photos": [
-          "images/amigos.jpg"
+          "images/amigos.jpg",
+          "images/IMG_20251113_203224.jpg",
+          "images/IMG_20251113_200510.jpg"
         ]
       },
       {
         "id": "relationship",
         "title": "Relacionamento",
-        "modal_text": "Este é o texto para 'Relacionamento'.\n[Fale aqui sobre o seu estado ou valores].",
+        "modal_text": "[ESCREVA O SEU TEXTO SOBRE RELACIONAMENTO AQUI...]",
         "photos": [
           "images/relacionamento.jpg"
         ]
@@ -44,17 +46,20 @@
       {
         "id": "school",
         "title": "Escola",
-        "modal_text": "Este é o texto para 'Escola'.\nEstudo no [Nome da Escola] e estou no [Ano] ano. As minhas matérias favoritas são...",
+        "modal_text": "[ESCREVA O SEU TEXTO SOBRE ESCOLA AQUI...]",
         "photos": [
-          "images/escola.jpg"
+          "images/escola.jpg",
+          "images/IMG_20251113_202554.jpg"
         ]
       },
       {
         "id": "future",
         "title": "Futuro",
-        "modal_text": "Este é o texto para 'Futuro'.\nO meu grande objetivo é competir no [Nome do Campeonato] e continuar a evoluir, tanto no tatame como na vida.",
+        "modal_text": "[ESCREVA O SEU TEXTO SOBRE O FUTURO AQUI...]",
         "photos": [
-          "images/futuro.jpg"
+          "images/futuro.jpg",
+          "images/IMG_20251113_201413.jpg",
+          "images/IMG_20251113_203743.jpg"
         ]
       }
     ]
