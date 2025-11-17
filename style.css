@@ -151,7 +151,8 @@ input:checked + .slider:before { transform: translateX(26px); }
   gap: 15px; 
   
   /* P/ DESKTOP: Caixa de Scroll (Opção 2) */
-  max-height: 780px; /* 3 linhas (250*3 + 15*2) */
+  /* *** ALTERADO AQUI *** */
+  max-height: 515px; /* 2 linhas (250*2 + 15) */
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 10px; /* Espaço para a barra de scroll */
@@ -277,5 +278,5 @@ input:checked + .slider:before { transform: translateX(26px); }
   .contact-info, 
   .contact-form-container { padding: 30px; }
   .modal-text-area { padding: 30px; }
-                }
-           
+             }
+                   
