@@ -1,1 +1,62 @@
-
+{
+  "hero": {
+    "title": "Alfeu Vantuir",
+    "subtitle": "Judoca | 16 Anos | Araucária - PR",
+    "description": "Bem-vindo ao meu espaço! Aqui partilho a minha jornada no judô, as minhas conquistas e a minha paixão pela tecnologia."
+  },
+  "history": {
+    "sectionTitle": "Conheça Minha História",
+    "sectionSubtitle": "Explore os capítulos da minha vida",
+    "categories": [
+      {
+        "id": "biography",
+        "title": "Biografia",
+        "modal_text": "Este é o texto de exemplo para a biografia.\nEu nasci em [Cidade] e comecei no judô aos [Idade] anos. A minha paixão pelo desporto foi imediata.\n\nEste texto pode ser tão longo quanto você quiser, e as quebras de linha (como esta) são suportadas.",
+        "photos": [
+          "images/biografia.jpg",
+          "images/profile.jpg"
+        ]
+      },
+      {
+        "id": "profession",
+        "title": "Profissão",
+        "modal_text": "Este é o texto para 'Profissão'.\nAtualmente, sou [Sua Profissão ou 'Estudante']. Tento equilibrar os meus treinos com [outra atividade].",
+        "photos": [
+          "images/profissao.jpg"
+        ]
+      },
+      {
+        "id": "friends",
+        "title": "Amigos",
+        "modal_text": "Este é o texto para 'Amigos'.\nOs meus amigos são a minha segunda família. Eles apoiam-me...",
+        "photos": [
+          "images/amigos.jpg"
+        ]
+      },
+      {
+        "id": "relationship",
+        "title": "Relacionamento",
+        "modal_text": "Este é o texto para 'Relacionamento'.\n[Fale aqui sobre o seu estado ou valores].",
+        "photos": [
+          "images/relacionamento.jpg"
+        ]
+      },
+      {
+        "id": "school",
+        "title": "Escola",
+        "modal_text": "Este é o texto para 'Escola'.\nEstudo no [Nome da Escola] e estou no [Ano] ano. As minhas matérias favoritas são...",
+        "photos": [
+          "images/escola.jpg"
+        ]
+      },
+      {
+        "id": "future",
+        "title": "Futuro",
+        "modal_text": "Este é o texto para 'Futuro'.\nO meu grande objetivo é competir no [Nome do Campeonato] e continuar a evoluir, tanto no tatame como na vida.",
+        "photos": [
+          "images/futuro.jpg"
+        ]
+      }
+    ]
+  }
+}
