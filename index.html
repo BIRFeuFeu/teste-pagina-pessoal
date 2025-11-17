@@ -1,259 +1,258 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alfeu Vantuir - Judoca</title>
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alfeu Vantuir - Judoca</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <button id="menuToggle" class="menu-btn" aria-label="Abrir menu de navegação">
-    <i class="fas fa-bars"></i>
-  </button>
+  <button id="menuToggle" class="menu-btn"><i class="fas fa-bars"></i></button>
 
-  <div id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-      <h3>Navegação</h3>
-            <button id="menuClose" class="close-btn" aria-label="Fechar menu de navegação">×</button>
-    </div>
-    <nav class="sidebar-nav">
-      <a href="#home" class="nav-link"><i class="fas fa-home"></i> Início</a>
-      <a href="#history" class="nav-link"><i class="fas fa-book"></i> Minha História</a>
-      <a href="#achievements" class="nav-link"><i class="fas fa-medal"></i> Conquistas</a>
-      <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Galeria</a>
-      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contato</a>
-    </nav>
-    
-    <div class="sidebar-footer">
-      <div class="theme-switch-wrapper">
-        <span>Modo Escuro</span>
-        <label class="theme-switch" for="checkbox">
-            <input type="checkbox" id="checkbox" />
-            <div class="slider round"></div>
-        </label>
-      </div>
-      <p style="margin-top: 15px; font-size: 12px; opacity: 0.5;">© 2024 Alfeu Vantuir</p>
-    </div>
-  </div>
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <h3>Navegação</h3>
+      <button id="menuClose" class="close-btn">×</button>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#home" class="nav-link"><i class="fas fa-home"></i> Início</a>
+      <a href="#history" class="nav-link"><i class="fas fa-book"></i> Minha História</a>
+      <a href="#achievements" class="nav-link"><i class="fas fa-medal"></i> Conquistas</a>
+      <a href="#gallery" class="nav-link"><i class="fas fa-images"></i> Galeria</a>
+      <a href="#contact" class="nav-link"><i class="fas fa-envelope"></i> Contato</a>
+    </nav>
+    
+    <div class="sidebar-footer">
+      <div class="theme-switch-wrapper">
+        <span>Modo Escuro</span>
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox" />
+            <div class="slider round"></div>
+        </label>
+      </div>
+      <p style="margin-top: 15px; font-size: 12px; opacity: 0.5;">© 2024 Alfeu Vantuir</p>
+    </div>
+  </div>
 
-    <header class="hero-banner" id="home">
-    <div class="hero-content reveal">
-      <div class="profile-container">
-        <div class="profile-photo"></div>
-        <div class="status-badge">Faixa Verde</div>
-      </div>
-      <h1 class="hero-title" id="mainTitle">Alfeu Vantuir</h1>
-      <p class="hero-subtitle" id="subtitle">Judoca | 16 Anos | Araucária - PR</p>
-      <div class="hero-divider"></div>
-      <p class="hero-description" id="description"></p>
-      <a href="#history" class="cta-button">Conhecer Mais ↓</a>
-    </div>
-  </header>
-  
-  <div class="container">
-    
-        <section class="section-wrapper" id="history">
-      <div class="section-header reveal">
-        <span class="section-tag">Trajetória</span>
-        <h2 class="section-title" id="sectionTitle">Conheça Minha História</h2>
-        <p class="section-subtitle" id="sectionSubtitle">Explore os capítulos da minha vida</p>
-      </div>
-      
-      <div class="categories-grid">
-        <div class="category-card reveal" data-category="biography">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="biographyTitle"></h2>
-            <p class="category-description">Conheça minha história, de onde vim e as experiências que moldaram quem sou hoje.</p>
-                        <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="category-card reveal" data-category="profession">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="professionTitle"></h2>
-            <p class="category-description">Descubra minha carreira, habilidades profissionais e conquistas no mundo do trabalho.</p>
-            <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="category-card reveal" data-category="friends">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="friendsTitle"></h2>
-            <p class="category-description">As pessoas mais importantes da minha vida e os momentos especiais que compartilhamos.</p>
-            <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="category-card reveal" data-category="relationship">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="relationshipTitle"></h2>
-            <p class="category-description">Minha vida amorosa, relacionamentos significativos e o que valorizo em conexões pessoais.</p>
-            <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="category-card reveal" data-category="school">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="schoolTitle"></h2>
-            <p class="category-description">Minha jornada educacional, formação acadêmica e aprendizados ao longo dos anos.</p>
-            <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-        <div class="category-card reveal" data-category="future">
-          <div class="category-image"></div>
-          <div class="category-content">
-            <h2 class="category-title" id="futureTitle"></h2>
-            <p class="category-description">Meus sonhos, objetivos e onde pretendo estar nos próximos anos da minha vida.</p>
-            <button class="read-more">Ler mais <i class="fas fa-arrow-right"></i></button>
-          </div>
-        </div>
-      </div>
-    </section>
+  <div class="hero-banner" id="home">
+    <div class="hero-content reveal">
+      <div class="profile-container">
+        <div class="profile-photo"></div>
+        <div class="status-badge">Faixa Verde</div>
+      </div>
+      <h1 class="hero-title" id="mainTitle">Alfeu Vantuir</h1>
+      <p class="hero-subtitle" id="subtitle">Judoca | 16 Anos | Araucária - PR</p>
+      <div class="hero-divider"></div>
+      <p class="hero-description" id="description"></p>
+      <a href="#history" class="cta-button">Conhecer Mais ↓</a>
+    </div>
+  </div>
+  
+  <div class="container">
+    
+    <div class="section-wrapper" id="history">
+      <div class="section-header reveal">
+        <span class="section-tag">Trajetória</span>
+        <h2 class="section-title" id="sectionTitle">Conheça Minha História</h2>
+        <p class="section-subtitle" id="sectionSubtitle">Explore os capítulos da minha vida</p>
+      </div>
+      
+      <div class="categories-grid">
+        <div class="category-card reveal" data-category="biography">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="biographyTitle"></h2>
+            <p class="category-description">Conheça minha história, de onde vim e as experiências que moldaram quem sou hoje.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="category-card reveal" data-category="profession">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="professionTitle"></h2>
+            <p class="category-description">Descubra minha carreira, habilidades profissionais e conquistas no mundo do trabalho.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="category-card reveal" data-category="friends">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="friendsTitle"></h2>
+            <p class="category-description">As pessoas mais importantes da minha vida e os momentos especiais que compartilhamos.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="category-card reveal" data-category="relationship">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="relationshipTitle"></h2>
+            <p class="category-description">Minha vida amorosa, relacionamentos significativos e o que valorizo em conexões pessoais.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="category-card reveal" data-category="school">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="schoolTitle"></h2>
+            <p class="category-description">Minha jornada educacional, formação acadêmica e aprendizados ao longo dos anos.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+        <div class="category-card reveal" data-category="future">
+          <div class="category-image"></div>
+          <div class="category-content">
+            <h2 class="category-title" id="futureTitle"></h2>
+            <p class="category-description">Meus sonhos, objetivos e onde pretendo estar nos próximos anos da minha vida.</p>
+            <span class="read-more">Ler mais <i class="fas fa-arrow-right"></i></span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <section class="section-wrapper alt-bg" id="achievements">
-      <div class="section-header reveal">
-        <span class="section-tag">Performance</span>
-        <h2 class="section-title">Quadro de Medalhas</h2>
-      </div>
-      <div class="achievements-grid">
-        <div class="achievement-card reveal">
-          <div class="icon-box"><i class="fas fa-trophy"></i></div>
-          <div class="achievement-details">
-            <h3>7º Lugar Brasileiro</h3>
-            <span class="year">2023</span>
-            <p>Classificação nacional entre os melhores atletas do país na categoria.</p>
-          </div>
-        </div>
-        <div class="achievement-card featured reveal">
-          <div class="icon-box green"><i class="fas fa-certificate"></i></div>
-          <div class="achievement-details">
-            <h3>Faixa Verde</h3>
-            <span class="year">Atual</span>
-            <p>Conquistada após anos de dedicação e aperfeiçoamento técnico.</p>
-          </div>
-        </div>
-        <div class="achievement-card reveal">
-          <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
-          <div class="achievement-details">
-            <h3>Atleta de Araucária</h3>
-            <span class="year">Desde 2015</span>
-            <p>Representante oficial do município em competições estaduais.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div class="section-wrapper alt-bg" id="achievements">
+      <div class="section-header reveal">
+        <span class="section-tag">Performance</span>
+        <h2 class="section-title">Quadro de Medalhas</h2>
+      </div>
+      <div class="achievements-grid">
+        <div class="achievement-card reveal">
+          <div class="icon-box"><i class="fas fa-trophy"></i></div>
+          <div class="achievement-details">
+            <h3>7º Lugar Brasileiro</h3>
+            <span class="year">2023</span>
+            <p>Classificação nacional entre os melhores atletas do país na categoria.</p>
+          </div>
+        </div>
+        <div class="achievement-card featured reveal">
+          <div class="icon-box green"><i class="fas fa-certificate"></i></div>
+          <div class="achievement-details">
+            <h3>Faixa Verde</h3>
+            <span class="year">Atual</span>
+            <p>Conquistada após anos de dedicação e aperfeiçoamento técnico.</p>
+          </div>
+        </div>
+        <div class="achievement-card reveal">
+          <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="achievement-details">
+            <h3>Atleta de Araucária</h3>
+            <span class="year">Desde 2015</span>
+            <p>Representante oficial do município em competições estaduais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <section class="section-wrapper" id="gallery">
-      <div class="section-header reveal">
-        <span class="section-tag">Momentos</span>
-        <h2 class="section-title">Galeria de Fotos</h2>
-        <p class="section-subtitle">Espaço reservado para novas fotos de campeonatos</p>
-      </div>
-      
-      <div class="gallery-grid" id="galleryGrid">
-        
-        <div class="gallery-item tall reveal" style="background-image: url('images/IMG_20251113_201413.jpg');">
-        </div>
-        
-        <div class="gallery-item tall reveal" style="background-image: url('images/exemplo_1x2_lado.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_203224.jpg');">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_200510.jpg');">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_202554.jpg');">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_204812.jpg');">
-        </div>
+    <div class="section-wrapper" id="gallery">
+      <div class="section-header reveal">
+        <span class="section-tag">Momentos</span>
+        <h2 class="section-title">Galeria de Fotos</h2>
+        <p class="section-subtitle">Espaço reservado para novas fotos de campeonatos</p>
+      </div>
+      
+      <div class="gallery-grid" id="galleryGrid">
+        
+        <div class="gallery-item tall reveal" style="background-image: url('images/IMG_20251113_201413.jpg');">
+        </div>
+        
+        <div class="gallery-item tall reveal" style="background-image: url('images/exemplo_1x2_lado.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_203224.jpg');">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_200510.jpg');">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_202554.jpg');">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/IMG_20251113_204812.jpg');">
+        </div>
 
-        <div class="gallery-item wide reveal" style="background-image: url('images/IMG_20251113_203743.jpg');">
-        </div>
-        
-        <div class="gallery-item wide reveal" style="background-image: url('images/exemplo_2x1_novo.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
+        <div class="gallery-item wide reveal" style="background-image: url('images/IMG_20251113_203743.jpg');">
+        </div>
+        
+        <div class="gallery-item wide reveal" style="background-image: url('images/exemplo_2x1_novo.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
 
-        <div class="gallery-item size-3x3 reveal" style="background-image: url('images/exemplo_3x3.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_lado.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_novo.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
-        
-        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_novo_2.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
+        <div class="gallery-item size-3x3 reveal" style="background-image: url('images/exemplo_3x3.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_lado.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_novo.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
+        
+        <div class="gallery-item reveal" style="background-image: url('images/exemplo_1x1_novo_2.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
 
-        <div class="gallery-item size-4x2 reveal" style="background-image: url('images/exemplo_4x2.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
-        </div>
-        
-      </div>
-      <button id="loadMoreBtn" class="load-more-btn reveal">Ver Mais Fotos</button>
-      
-    </section>
+        <div class="gallery-item size-4x2 reveal" style="background-image: url('images/exemplo_4x2.jpg'); background-color: var(--color-accent); border: 3px dashed white;">
+        </div>
+        
+      </div>
+      <button id="loadMoreBtn" class="load-more-btn reveal">Ver Mais Fotos</button>
+      
+    </div>
 
-    <section class="section-wrapper" id="contact">
-      <div class="contact-layout reveal">
-        <div class="contact-info">
-          <h2 class="section-title">Vamos Conversar?</h2>
-          <p>Estou disponível para parcerias, dúvidas sobre judô ou apenas para trocar uma ideia sobre tecnologia e esporte.</p>
-          <div class="contact-methods">
-            <div class="method"><i class="fas fa-envelope"></i> contato@alfeuvantuir.com</div>
-            <div class="method"><i class="fas fa-map-pin"></i> Araucária, Paraná</div>
-          </div>
-        </div>
-        <div class="contact-form-container">
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <label>Seu Nome</label>
-              <input type="text" required>
-            </div>
-            <div class="form-group">
-              <label>Seu Email</label>
-              <input type="email" required>
-            </div>
-            <div class="form-group">
-              <label>Mensagem</label>
-              <textarea rows="4" required></textarea>
-            </div>
-            <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
-          </form>
-        </div>
-      </div>
-    </section>
-    
-    <div id="modalPopup" class="modal">
-      <div class="modal-box">
-        <button id="closeModal" aria-label="Fechar modal"> <i class="fas fa-times"></i> </button>
-        
-        <div id="modalPhotoContainer" class="modal-carousel">
-          <div class="carousel-slides"></div>
-                    <button id="carouselBtnPrev" class="carousel-btn prev" aria-label="Foto anterior"><i class="fas fa-chevron-left"></i></button>
-          <button id="carouselBtnNext" class="carousel-btn next" aria-label="Próxima foto"><i class="fas fa-chevron-right"></i></button>
-        </div>
-        
-        <div class="modal-text-area">
-          <h1 id="modalTitle">Título</h1>
-          <h2 class="story-heading">Sua História</h2>
-          <div id="modalContent"></div>
-        </div>
-      </div>
-    </div>
+    <div class="section-wrapper" id="contact">
+      <div class="contact-layout reveal">
+        <div class="contact-info">
+          <h2 class="section-title">Vamos Conversar?</h2>
+          <p>Estou disponível para parcerias, dúvidas sobre judô ou apenas para trocar uma ideia sobre tecnologia e esporte.</p>
+          <div class="contact-methods">
+            <div class="method"><i class="fas fa-envelope"></i> contato@alfeuvantuir.com</div>
+            <div class="method"><i class="fas fa-map-pin"></i> Araucária, Paraná</div>
+          </div>
+        </div>
+        <div class="contact-form-container">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label>Seu Nome</label>
+              <input type="text" required>
+            </div>
+            <div class="form-group">
+              <label>Seu Email</label>
+              <input type="email" required>
+            </div>
+            <div class="form-group">
+              <label>Mensagem</label>
+              <textarea rows="4" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <div id="modalPopup" class="modal">
+      <div class="modal-box">
+        <button id="closeModal"> <i class="fas fa-times"></i> </button>
+        
+        <div id="modalPhotoContainer" class="modal-carousel">
+          <div class="carousel-slides"></div>
+          <button id="carouselBtnPrev" class="carousel-btn prev"><i class="fas fa-chevron-left"></i></button>
+          <button id="carouselBtnNext" class="carousel-btn next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        
+        <div class="modal-text-area">
+          <h1 id="modalTitle">Título</h1>
+          <h2 class="story-heading">Sua História</h2>
+          <div id="modalContent"></div>
+        </div>
+      </div>
+    </div>
 
-  </div>
-  
-  <script src="script.js"></script>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
-</html>
+        </html>
+                                                                                                       
