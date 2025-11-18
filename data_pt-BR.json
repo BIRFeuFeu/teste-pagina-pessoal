@@ -11,10 +11,11 @@
       {
         "id": "biography",
         "title": "Biografia",
-        "modal_text": "Eu sou Alfeu Vantuir e, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, porém sempre morei em Araucária.\nMe considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.\nSobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.",
+        "modal_text": "Eu sou Alfeu Vantuir, tenho 16 anos e meu aniversário é no dia 22 de julho. Nasci em Curitiba, no ano de 2009, morei em Araucária por um tempo, até que meu irmão mais novo, Alex Fabiano, nasceu, e quando isso aconteceu nos mudamos de Araucária para Foz do Iguaçu, para que meus avós ajudassem minha mãe em nosso cuidados, e após um tempo, voltamos para Araucária, onde vovemos até hoje.\nMe considero alguém gentil, empático, e amável, e sempre tento fazer o bem, para todos.\nSobre minha personalidade, tenho um humor ácido, e rio por praticamente tudo, gosto de sorrir, e principalmente de ser feliz.",
         "photos": [
-          "images/profile.jpg",
-          "images/biografia.jpg"
+          "images/biografia.jpg",
+          "images/biografia2.jpg",
+          "images/biografia3.jpg"
         ]
       },
       {
@@ -22,7 +23,8 @@
         "title": "Profissão",
         "modal_text": "Meu trabalho atual é o judô, esporte que já pratico há 10 anos, desde os meus 6. Comecei como faixa branca, treinando em Araucária, pelo Judô Araucária, e com minha Sensei Jacqueline Osana.\nE com o tempo, fui aprendendo e me aperfeiçoando até chegar onde estou hoje, com a faixa verde.\nComecei a me destacar aos 14 anos, quando ainda era faixa amarela. Em 2023, conquistei a classificação para o Campeonato Brasileiro de Judô — um campeonato nacional que reúne atletas de todo o Brasil em busca do pódio.\nConsegui ficar em 7º lugar dentre todos do país na minha categoria, e considero isso uma grande conquista — uma conquista que me impulsiona a treinar cada vez mais para chegar ainda mais longe.",
         "photos": [
-          "images/profissao.jpg"
+          "images/profissao.jpg",
+          "images/profissao2.jpg"
         ]
       },
       {
@@ -30,9 +32,7 @@
         "title": "Amigos",
         "modal_text": "[ESCREVA O SEU TEXTO SOBRE AMIGOS AQUI...]",
         "photos": [
-          "images/amigos.jpg",
-          "images/IMG_20251113_203224.jpg",
-          "images/IMG_20251113_200510.jpg"
+          "images/amigos.jpg"
         ]
       },
       {
@@ -40,7 +40,8 @@
         "title": "Relacionamento",
         "modal_text": "Essa mulher linda ao meu lado se chama Júlia, e tenho o privilégio de chamá-la de amor da minha vida.\nEstamos juntos desde o dia do nosso primeiro beijo, 31 de agosto, dia em que começou a nossa história de amor.\nNão lembro ao certo quando a conheci, mas nos aproximamos muito rápido. Lembro de um treinamento de campo chamado Kangueiko, organizado pela academia de judô Tonietto, de Curitiba. Foi lá que ficamos realmente próximos: treinamos juntos, almoçamos juntos e passamos praticamente o dia inteiro interagindo. Até nos demos apelidos.\nDepois disso, só fomos nos ver novamente em um torneio, também em Curitiba, chamado Budokan. O torneio aconteceria em dois dias: o primeiro seria um treinamento e o segundo, a competição em si.\nNo primeiro dia, treinamos juntos e conversamos bastante. Já no segundo, aconteceu o nosso primeiro beijo, e foi mágico. Depois de passarmos o dia inteiro juntos, eu tive a atitude de pedi-la em namoro, e deu tudo certo. Foi incrível!\nDesde então, seguimos juntos, nos amando muito. É um amor recíproco, algo que sempre sonhei e que finalmente encontrei nela, alguém que já me fez tão feliz em tão pouco tempo.\nEstamos no nosso segundo mês de namoro e ansiosos por tudo o que ainda vamos viver, juntos e unidos.",
         "photos": [
-          "images/relacionamento.jpg"
+          "images/relacionamento.jpg",
+          "images/relacionamento2.jpg"
         ]
       },
       {
@@ -48,8 +49,7 @@
         "title": "Escola",
         "modal_text": "[ESCREVA O SEU TEXTO SOBRE ESCOLA AQUI...]",
         "photos": [
-          "images/escola.jpg",
-          "images/IMG_20251113_202554.jpg"
+          "images/escola.jpg"
         ]
       },
       {
@@ -57,9 +57,7 @@
         "title": "Futuro",
         "modal_text": "[ESCREVA O SEU TEXTO SOBRE O FUTURO AQUI...]",
         "photos": [
-          "images/futuro.jpg",
-          "images/IMG_20251113_201413.jpg",
-          "images/IMG_20251113_203743.jpg"
+          "images/futuro.jpg"
         ]
       }
     ]
