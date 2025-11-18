@@ -227,15 +227,16 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* --- 9. CORREÇÕES DE ENQUADRAMENTO (CUSTOM FIXES) --- */
 /* ================================================= */
 
-/* Esta regra foca no TOPO da foto de profissão 1 */
+/* Esta regra foca no "meio-termo" (25%) */
 .carousel-slide[style*="images/profissao.jpg"] {
-  background-position: top center; 
+  /* Ajuste o valor: 0% = topo, 50% = centro */
+  background-position: center 25%; 
 }
 
-/* --- NOVA REGRA ADICIONADA AQUI --- */
-/* Esta regra foca no TOPO da foto de profissão 2 */
+/* Esta regra foca no "meio-termo" (25%) */
 .carousel-slide[style*="images/profissao2.jpg"] {
-  background-position: top center; 
+  /* Ajuste o valor: 0% = topo, 50% = centro */
+  background-position: center 25%; 
 }
 
 
