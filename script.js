@@ -59,24 +59,53 @@ function setupMenu() {
 }
 
 /* =================================================== */
-/* --- 3. ANIMAÇÃO DE SCROLL (REVEAL) --- */
+/* --- 3. ANIMAÇÃO DE SCROLL E LAZY LOADING (NOVO) --- */
 /* =================================================== */
 
-function scrollReveal() {
-    const reveals = document.querySelectorAll('.reveal');
-    const windowHeight = window.innerHeight;
-    const revealPoint = 50; // Ponto de gatilho (50px para dentro da viewport)
+// Esta função substitui a antiga 'scrollReveal'
+// Ela usa IntersectionObserver para performance máxima.
+function setupIntersectionObserver() {
+    const elementsToObserve = document.querySelectorAll('.reveal');
 
-    reveals.forEach(reveal => {
-        const revealTop = reveal.getBoundingClientRect().top;
-        if (revealTop < windowHeight - revealPoint) {
-            reveal.classList.add('active');
-        } else {
-            // Opcional: remover a classe se sair da vista
-            // reveal.classList.remove('active'); 
-        }
-    });
+    // Configurações do observer:
+    // rootMargin: '0px 0px -50px 0px' significa que vai ativar 
+    // 50px *antes* de o elemento entrar totalmente na vista (similar ao seu 'revealPoint' antigo)
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -50px 0px',
+        threshold: 0
+    };
+
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            // Se o elemento está visível
+            if (entry.isIntersecting) {
+                const targetElement = entry.target;
+
+                // 1. Ativa a animação de 'reveal'
+                targetElement.classList.add('active');
+                
+                // 2. Verifica se este elemento também precisa de Lazy Loading
+                // (Procurando pelo atributo 'data-src' que adicionámos no HTML)
+                if (targetElement.dataset.src) {
+                    // Carrega a imagem
+                    targetElement.style.backgroundImage = `url('${targetElement.dataset.src}')`;
+                    
+                    // Remove o atributo para não carregar de novo
+                    delete targetElement.dataset.src; 
+                }
+
+                // 3. Deixa de observar este elemento (já foi revelado/carregado)
+                observer.unobserve(targetElement);
+            }
+        });
+    };
+
+    // Cria e ativa o observer
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    elementsToObserve.forEach(el => observer.observe(el));
 }
+
 
 /* =================================================== */
 /* --- 4. BUSCA E POPULAÇÃO DE DADOS (JSON) --- */
@@ -84,7 +113,10 @@ function scrollReveal() {
 
 async function fetchData(lang = defaultLanguage) {
     try {
-        const response = await fetch(`data_${lang}.json`);
+        // Usamos 'cache: "no-store"' para garantir que no GitHub Pages
+        // ele sempre busca o JSON mais recente durante o desenvolvimento.
+        const response = await fetch(`data_${lang}.json?v=${new Date().getTime()}`, { cache: "no-store" }); 
+        
         if (!response.ok) {
             throw new Error(`Erro ao carregar dados: ${response.statusText}`);
         }
@@ -92,10 +124,6 @@ async function fetchData(lang = defaultLanguage) {
         
         // Funções que dependem dos dados do JSON
         populateContent();
-        
-        // **** ESTA É A CORREÇÃO! ****
-        // Mover a configuração do Modal para AQUI
-        // garante que `siteData` está preenchido.
         setupModal(); 
         
     } catch (error) {
@@ -267,16 +295,14 @@ document.addEventListener("DOMContentLoaded", function() {
     // Funções que NÃO dependem do JSON
     setupMenu();
     setupGalleryLoadMore(); 
-    scrollReveal();
-
-    // **** ESTA É A MUDANÇA! ****
-    // A função setupModal() foi REMOVIDA DAQUI...
     
+    // ATIVA A NOVA FUNÇÃO 2-em-1 (Animação e Lazy Load)
+    setupIntersectionObserver();
+
     // Função que busca os dados e DEPOIS chama
     // as funções dependentes (populateContent e setupModal)
     fetchData(); 
 });
 
-// Evento de scroll para a animação
-window.addEventListener('scroll', scrollReveal);
-        
+// O antigo event listener de scroll foi removido por ser menos eficiente
+// window.addEventListener('scroll', scrollReveal);
