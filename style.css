@@ -203,18 +203,18 @@ input:checked + .slider:before { transform: translateX(26px); }
 .form-group input, .form-group textarea { width: 100%; padding: 15px; background: var(--color-input-bg); color: var(--color-input-text); border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; font-family: inherit; transition: box-shadow 0.3s; }
 .submit-btn { background-color: var(--color-accent); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
 
-/* **** NOVOS ESTILOS ADICIONADOS AQUI **** */
+/* **** ESTILOS DOS ÍCONES SOCIAIS **** */
 .social-title {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--color-accent); /* Usa a cor de destaque */
-  margin-top: 30px; /* Espaço acima */
+  color: var(--color-accent); 
+  margin-top: 30px; 
   margin-bottom: 15px;
 }
 
 .social-icons {
   display: flex;
-  flex-wrap: wrap; /* Para quebrar a linha em telas pequenas */
+  flex-wrap: wrap; 
   gap: 15px;
 }
 
@@ -222,12 +222,16 @@ input:checked + .slider:before { transform: translateX(26px); }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
+  /* --- MUDANÇA AQUI --- */
+  width: 60px;  /* De 50px para 60px */
+  height: 60px; /* De 50px para 60px */
+  /* --- FIM DA MUDANÇA --- */
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
-  color: white; /* Cor do ícone */
-  font-size: 22px;
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: white; 
+  /* --- MUDANÇA AQUI --- */
+  font-size: 28px; /* De 22px para 28px */
+  /* --- FIM DA MUDANÇA --- */
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -235,7 +239,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Efeito de hover genérico */
 .social-link:hover {
   transform: translateY(-3px) scale(1.05);
-  color: white; /* Garante que o ícone fique branco */
+  color: white; 
 }
 
 /* Cores específicas no hover */
@@ -244,9 +248,9 @@ input:checked + .slider:before { transform: translateX(26px); }
 .social-link.facebook:hover { background-color: #1877F2; }
 .social-link.github:hover { 
   background-color: var(--color-text-inverted); 
-  color: #1a1614; /* Cor de fundo escura */
+  color: #1a1614; 
 }
-/* **** FIM DOS NOVOS ESTILOS **** */
+/* **** FIM DOS ESTILOS SOCIAIS **** */
 
 
 /* --- MODAL --- */
@@ -282,7 +286,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Esta regra foca no "meio-termo" (25%) */
 .carousel-slide[style*="images/profissao2.jpg"] {
   /* Ajuste o valor: 0% = topo, 50% = centro */
-  background-position: center 35%; 
+  background-position: center 25%; 
 }
 
 
