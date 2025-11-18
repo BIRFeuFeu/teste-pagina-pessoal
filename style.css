@@ -150,8 +150,11 @@ input:checked + .slider:before { transform: translateX(26px); }
   grid-auto-rows: 250px; 
   gap: 15px; 
   
-  /* P/ DESKTOP: Caixa de Scroll (Opção 2) */
-  max-height: 515px; /* 2 linhas (250*2 + 15) */
+  /* --- MUDANÇA AQUI --- */
+  /* P/ DESKTOP: Caixa de Scroll (3 linhas) */
+  max-height: 780px; /* 3 linhas (250*3 + 15*2) */
+  /* --- FIM DA MUDANÇA --- */
+  
   overflow-y: auto;
   overflow-x: hidden;
   padding-right: 10px; /* Espaço para a barra de scroll */
