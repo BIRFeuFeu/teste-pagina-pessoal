@@ -236,7 +236,7 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Esta regra foca no "meio-termo" (25%) */
 .carousel-slide[style*="images/profissao2.jpg"] {
   /* Ajuste o valor: 0% = topo, 50% = centro */
-  background-position: center 25%; 
+  background-position: center 35%; 
 }
 
 
