@@ -157,6 +157,16 @@ input:checked + .slider:before { transform: translateX(26px); }
   padding-right: 10px; /* Espaço para a barra de scroll */
 }
 .gallery-item { border-radius: 8px; cursor: pointer; transition: filter 0.3s; background-size: cover; background-position: center; }
+
+/* --- NOVO ESTILO DE PLACEHOLDER --- */
+.gallery-item[data-src] {
+  background-color: rgba(45, 36, 32, 0.05); /* Fundo placeholder */
+}
+[data-theme="dark"] .gallery-item[data-src] {
+  background-color: rgba(255, 255, 255, 0.02); /* Fundo placeholder p/ modo escuro */
+}
+/* --- FIM DO NOVO ESTILO --- */
+
 .gallery-item.placeholder { background-color: rgba(45, 36, 32, 0.05); border: 2px dashed var(--color-accent); display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--color-accent); font-weight: 600; }
 /* Classes de tamanho padrão */
 .gallery-item.wide { grid-column: span 2; } 
@@ -222,16 +232,12 @@ input:checked + .slider:before { transform: translateX(26px); }
   display: flex;
   align-items: center;
   justify-content: center;
-  /* --- MUDANÇA AQUI --- */
-  width: 60px;  /* De 50px para 60px */
-  height: 60px; /* De 50px para 60px */
-  /* --- FIM DA MUDANÇA --- */
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.1); 
   color: white; 
-  /* --- MUDANÇA AQUI --- */
-  font-size: 28px; /* De 22px para 28px */
-  /* --- FIM DA MUDANÇA --- */
+  font-size: 28px;
   text-decoration: none;
   transition: all 0.3s ease;
 }
