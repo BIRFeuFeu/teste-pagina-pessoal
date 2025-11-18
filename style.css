@@ -203,6 +203,52 @@ input:checked + .slider:before { transform: translateX(26px); }
 .form-group input, .form-group textarea { width: 100%; padding: 15px; background: var(--color-input-bg); color: var(--color-input-text); border: 1px solid rgba(0,0,0,0.1); border-radius: 8px; font-family: inherit; transition: box-shadow 0.3s; }
 .submit-btn { background-color: var(--color-accent); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; }
 
+/* **** NOVOS ESTILOS ADICIONADOS AQUI **** */
+.social-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent); /* Usa a cor de destaque */
+  margin-top: 30px; /* Espaço acima */
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  display: flex;
+  flex-wrap: wrap; /* Para quebrar a linha em telas pequenas */
+  gap: 15px;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo sutil */
+  color: white; /* Cor do ícone */
+  font-size: 22px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Efeito de hover genérico */
+.social-link:hover {
+  transform: translateY(-3px) scale(1.05);
+  color: white; /* Garante que o ícone fique branco */
+}
+
+/* Cores específicas no hover */
+.social-link.whatsapp:hover { background-color: #25D366; }
+.social-link.instagram:hover { background-color: #E4405F; }
+.social-link.facebook:hover { background-color: #1877F2; }
+.social-link.github:hover { 
+  background-color: var(--color-text-inverted); 
+  color: #1a1614; /* Cor de fundo escura */
+}
+/* **** FIM DOS NOVOS ESTILOS **** */
+
+
 /* --- MODAL --- */
 .modal { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.9); z-index: 3000; align-items: center; justify-content: center; padding: 20px; }
 .modal.active { display: flex; animation: fadeIn 0.3s ease; }
