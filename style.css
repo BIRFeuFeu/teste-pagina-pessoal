@@ -230,6 +230,8 @@ input:checked + .slider:before { transform: translateX(26px); }
 /* Esta regra foca no TOPO da foto de profissão */
 .carousel-slide[style*="images/profissao.jpg"] {
   background-position: top center; 
+.carousel-slide[style*="images/profissao2.jpg"] {
+  background-position: top center; 
 }
 
 
