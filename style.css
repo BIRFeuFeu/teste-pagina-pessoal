@@ -222,6 +222,17 @@ input:checked + .slider:before { transform: translateX(26px); }
 .carousel-btn.next { right: 20px; }
 @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
 
+
+/* ================================================= */
+/* --- 9. CORREÇÕES DE ENQUADRAMENTO (CUSTOM FIXES) --- */
+/* ================================================= */
+
+/* Esta regra foca no TOPO da foto de profissão */
+.carousel-slide[style*="images/profissao.jpg"] {
+  background-position: top center; 
+}
+
+
 /* ================================================= */
 /* --- AJUSTES DE RESPONSIVIDADE (TELA MENOR QUE 768PX) --- */
 /* ================================================= */
@@ -277,5 +288,4 @@ input:checked + .slider:before { transform: translateX(26px); }
   .contact-info, 
   .contact-form-container { padding: 30px; }
   .modal-text-area { padding: 30px; }
-                   }
-                           
+}
